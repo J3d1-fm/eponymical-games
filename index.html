@@ -30,7 +30,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
   body {
     background: var(--bg); color: var(--text);
     font-family: "Manrope", system-ui, sans-serif; line-height: 1.6;
@@ -626,8 +626,13 @@
         <li>📈 Adaptive difficulty</li>
         <li>📱 iOS &amp; Android</li>
       </ul>
-      <form class="notify" id="notifyForm">
-        <input type="email" placeholder="you@email.com" aria-label="Email" required />
+      <form class="notify" id="notifyForm" action="https://formsubmit.co/direct@eponymicalgames.com" method="POST">
+        <input type="hidden" name="_subject" value="Launch notification request - Eponymical Games" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="https://eponymicalgames.com/?submitted=notify" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+        <input type="hidden" name="form" value="Launch notification request" />
+        <input type="email" name="email" placeholder="you@email.com" aria-label="Email" required />
         <button type="submit" class="btn btn-primary">Notify me at launch →</button>
       </form>
       <p class="form-note">Be first to play. We'll only email you about the launch. See our <a href="privacy-policy.html">Privacy Policy</a> &amp; <a href="terms-of-service.html">Terms of Service</a>.</p>
@@ -734,11 +739,16 @@
     </div>
 
     <div class="contact-grid">
-      <form id="leadForm">
-        <div class="field"><label for="name">Your name</label><input id="name" type="text" placeholder="Jane Doe" required /></div>
-        <div class="field"><label for="email">Email</label><input id="email" type="email" placeholder="you@email.com" required /></div>
+      <form id="leadForm" action="https://formsubmit.co/direct@eponymicalgames.com" method="POST">
+        <input type="hidden" name="_subject" value="New website enquiry - Eponymical Games" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="https://eponymicalgames.com/?submitted=contact" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+        <input type="hidden" name="form" value="Website enquiry" />
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" placeholder="Jane Doe" required /></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" required /></div>
         <div class="field"><label for="topic">I'm interested in</label>
-          <select id="topic">
+          <select id="topic" name="topic">
             <option>Early access to the piano app</option>
             <option>Building a learning game</option>
             <option>Gamifying my product</option>
@@ -746,7 +756,7 @@
             <option>Just saying hi</option>
           </select>
         </div>
-        <div class="field"><label for="msg">Message</label><textarea id="msg" placeholder="Tell us a little about what you have in mind..."></textarea></div>
+        <div class="field"><label for="msg">Message</label><textarea id="msg" name="message" placeholder="Tell us a little about what you have in mind..."></textarea></div>
         <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send message →</button>
         <p class="form-note">By submitting, you agree to be contacted about your enquiry. No spam, ever.</p>
       </form>
@@ -840,11 +850,9 @@
 
   const form = document.getElementById('leadForm');
   const toast = document.getElementById('toast');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
+  form.addEventListener('submit', () => {
+    toast.textContent = 'Sending your message...';
     toast.classList.add('show');
-    form.reset();
-    setTimeout(() => toast.classList.remove('show'), 3500);
   });
 
   // scroll-driven zoom into the iPad, synced with rotating app info
@@ -894,11 +902,9 @@
   // notify-me form (coming soon)
   const notifyForm = document.getElementById('notifyForm');
   if (notifyForm) {
-    notifyForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+    notifyForm.addEventListener('submit', () => {
+      toast.textContent = 'Sending your request...';
       toast.classList.add('show');
-      notifyForm.reset();
-      setTimeout(() => toast.classList.remove('show'), 3500);
     });
   }
 
