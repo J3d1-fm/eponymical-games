@@ -18,9 +18,12 @@ Hosting:
 - Custom domain file: CNAME contains eponymicalgames.com.
 
 DNS:
-- The domain was still using Wix nameservers during setup: ns2.wixdns.net and ns3.wixdns.net.
-- To make GitHub Pages live on the apex domain, authoritative DNS must point eponymicalgames.com to GitHub Pages.
-- Keep Google Workspace MX, SPF, and DKIM records intact when changing DNS.
+- Domain nameservers were switched from Wix (ns2.wixdns.net and ns3.wixdns.net) to Squarespace/Google Cloud DNS on 2026-06-11.
+- Active nameservers: ns-cloud-d1.googledomains.com, ns-cloud-d2.googledomains.com, ns-cloud-d3.googledomains.com, and ns-cloud-d4.googledomains.com.
+- Authoritative apex A records point to GitHub Pages: 185.199.108.153, 185.199.109.153, 185.199.110.153, and 185.199.111.153.
+- The www host is a CNAME to j3d1-fm.github.io.
+- Google Workspace MX, SPF, and DKIM records were preserved in Squarespace DNS.
+- GitHub Pages HTTPS enforcement is pending certificate issuance after DNS propagation.
 
 Rollback:
 - Current deployed change commit: 0b2f61e.

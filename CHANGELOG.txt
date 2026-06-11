@@ -1,5 +1,9 @@
 2026-06-11
 
+- Switched eponymicalgames.com nameservers in Squarespace from Wix to Squarespace/Google Cloud DNS.
+- Verified authoritative DNS for GitHub Pages A/CNAME records and Google Workspace MX, SPF, and DKIM records.
+- Left GitHub Pages HTTPS enforcement pending until GitHub issues the custom-domain certificate.
+
 - Added real form submission for the launch notification and contact forms.
 - Both forms now send requests to direct@eponymicalgames.com via FormSubmit.
 - Added GitHub Pages custom domain configuration for eponymicalgames.com.
