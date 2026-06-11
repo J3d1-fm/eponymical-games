@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eponymical Games — Gamified Learning Apps</title>
+<meta name="description" content="Eponymical Games is a London studio building gamified, educational game apps that make learning genuinely fun. Currently in development: a game-based app that teaches you to play piano." />
+<meta property="og:title" content="Eponymical Games — Gamified Learning Apps" />
+<meta property="og:description" content="We turn learning into play. London-based studio crafting educational games and gamification systems." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #07070b;
+    --bg-soft: #0d0d14;
+    --surface: rgba(255, 255, 255, 0.03);
+    --surface-2: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #f4f4f8;
+    --muted: #8b8b9e;
+    --violet: #7c5cff;
+    --cyan: #2bd9ff;
+    --lime: #9dff5c;
+    --pink: #ff5c97;
+    --grad: linear-gradient(120deg, #7c5cff 0%, #2bd9ff 50%, #9dff5c 100%);
+    --grad-warm: linear-gradient(120deg, #7c5cff 0%, #ff5c97 100%);
+    --radius: 22px;
+    --maxw: 1180px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: "Manrope", system-ui, sans-serif; line-height: 1.6;
+    overflow-x: hidden; -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: rgba(124, 92, 255, 0.4); }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, .display { font-family: "Space Grotesk", "Manrope", sans-serif; letter-spacing: -0.02em; }
+
+  /* ===== ambient flow background ===== */
+  .flow-bg {
+    position: fixed; inset: 0; z-index: -2; overflow: hidden;
+    background: radial-gradient(1200px 700px at 70% -10%, rgba(124,92,255,0.18), transparent 60%),
+                radial-gradient(900px 600px at 10% 20%, rgba(43,217,255,0.12), transparent 55%),
+                var(--bg);
+  }
+  .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.5; will-change: transform; }
+  .blob.b1 { width: 540px; height: 540px; background: #7c5cff; top: -120px; left: -80px; animation: drift1 18s ease-in-out infinite; }
+  .blob.b2 { width: 480px; height: 480px; background: #2bd9ff; top: 30%; right: -120px; animation: drift2 22s ease-in-out infinite; }
+  .blob.b3 { width: 420px; height: 420px; background: #9dff5c; bottom: -140px; left: 30%; animation: drift3 26s ease-in-out infinite; }
+  @keyframes drift1 { 50% { transform: translate(120px, 80px) scale(1.1); } }
+  @keyframes drift2 { 50% { transform: translate(-100px, 60px) scale(1.08); } }
+  @keyframes drift3 { 50% { transform: translate(60px, -90px) scale(1.12); } }
+
+  .grain {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* ===== nav ===== */
+  header {
+    position: sticky; top: 0; z-index: 50; backdrop-filter: blur(14px);
+    background: rgba(7,7,11,0.55); border-bottom: 1px solid transparent; transition: border-color .3s, background .3s;
+  }
+  header.scrolled { border-bottom-color: var(--border); background: rgba(7,7,11,0.8); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .logo { display: flex; align-items: center; gap: 11px; font-family: "Space Grotesk"; font-weight: 700; font-size: 19px; }
+  .logo .mark {
+    width: 34px; height: 34px; border-radius: 10px; background: var(--grad);
+    display: grid; place-items: center; font-size: 17px; color: #0a0a0f; box-shadow: 0 0 24px rgba(124,92,255,0.55);
+  }
+  .nav-links { display: flex; gap: 30px; align-items: center; }
+  .nav-links a.link { color: var(--muted); font-weight: 500; font-size: 15px; transition: color .2s; }
+  .nav-links a.link:hover { color: var(--text); }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px; font-weight: 600; font-size: 15px;
+    padding: 12px 22px; border-radius: 999px; cursor: pointer; border: none;
+    transition: transform .2s, box-shadow .3s; font-family: inherit;
+  }
+  .btn-primary { background: var(--grad); color: #0a0a0f; box-shadow: 0 8px 30px rgba(124,92,255,0.35); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(124,92,255,0.5); }
+  .btn-ghost { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.09); transform: translateY(-2px); }
+  .menu-toggle { display: none; background: none; border: none; color: var(--text); font-size: 26px; cursor: pointer; }
+
+  /* ===== hero ===== */
+  .hero { padding: 90px 0 60px; position: relative; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: .02em;
+    padding: 8px 16px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface);
+    color: var(--muted); margin-bottom: 28px;
+  }
+  .pill .live { width: 8px; height: 8px; border-radius: 50%; background: #9dff5c; box-shadow: 0 0 10px #9dff5c; animation: pulse 1.8s infinite; }
+  @keyframes pulse { 50% { opacity: .4; } }
+
+  .hero h1 { font-size: clamp(40px, 7vw, 80px); line-height: 1.03; font-weight: 700; max-width: 15ch; }
+  .gradient-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p.lead { font-size: clamp(17px, 2.2vw, 21px); color: var(--muted); max-width: 54ch; margin-top: 26px; }
+  .hero-cta { display: flex; gap: 16px; margin-top: 38px; flex-wrap: wrap; }
+  .hero-stats { display: flex; gap: 44px; margin-top: 58px; flex-wrap: wrap; }
+  .stat .num { font-family: "Space Grotesk"; font-size: 36px; font-weight: 700; }
+  .stat .lbl { color: var(--muted); font-size: 14px; }
+
+  .hero-grid { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: 40px; align-items: center; }
+  .phone-stage { position: relative; display: grid; place-items: center; min-height: 500px; }
+  .phone {
+    position: relative; width: 280px; height: 580px; border-radius: 46px;
+    background: linear-gradient(160deg, #15151f, #0a0a10); border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.6), inset 0 0 0 6px rgba(0,0,0,0.4);
+    padding: 14px; animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float { 50% { transform: translateY(-18px); } }
+  .phone .notch { position: absolute; top: 18px; left: 50%; transform: translateX(-50%); width: 110px; height: 26px; background: #000; border-radius: 999px; z-index: 3; }
+  .screen { width: 100%; height: 100%; border-radius: 34px; overflow: hidden; background: #0b0b12; position: relative; display: flex; flex-direction: column; }
+  .screen-top { padding: 44px 18px 12px; text-align: center; }
+  .screen-top .app-tag { font-size: 11px; letter-spacing:.14em; text-transform:uppercase; color: var(--cyan); }
+  .screen-top .song { font-family: "Space Grotesk"; font-size: 19px; font-weight: 700; margin-top: 4px; }
+  .screen-top .lvl { font-size: 11px; color: var(--muted); }
+
+  /* falling piano notes */
+  .roll { flex: 1; position: relative; overflow: hidden; margin: 6px 12px; border-radius: 14px;
+    background: linear-gradient(180deg, rgba(124,92,255,0.10), rgba(0,0,0,0)); border: 1px solid var(--border); }
+  /* 7 lanes that line up with the 7 keys below (key i center ≈ (i+0.5)/7) */
+  .note { position: absolute; width: 12%; border-radius: 5px; opacity: .95; animation: fall 2.6s linear infinite; box-shadow: 0 0 14px rgba(124,92,255,0.5); }
+  .note.n1 { left: 1.1%;  height: 34px; background: var(--violet); animation-delay: 0s; }
+  .note.n2 { left: 29.7%; height: 26px; background: var(--cyan);   animation-delay: .5s; }
+  .note.n3 { left: 58.3%; height: 42px; background: var(--pink);   animation-delay: 1s; }
+  .note.n4 { left: 86.9%; height: 30px; background: var(--lime);   animation-delay: 1.5s; }
+  .note.n5 { left: 29.7%; height: 22px; background: var(--cyan);   animation-delay: 2s; }
+  @keyframes fall { from { top: -50px; } to { top: 105%; } }
+  .keys { display: flex; height: 56px; margin: 0 12px 6px; }
+  .keys .key { flex: 1; background: linear-gradient(180deg,#f4f4f8,#cfcfe0); border-radius: 0 0 5px 5px; margin: 0 1.5px; position: relative; }
+  .keys .key.lit { background: linear-gradient(180deg,#bda4ff,#7c5cff); box-shadow: 0 0 16px var(--violet); }
+  .score-bar { display:flex; justify-content:space-between; padding: 8px 16px 18px; font-size: 12px; }
+  .score-bar b { font-family:"Space Grotesk"; }
+  .score-bar .combo { color: var(--lime); }
+
+  .glow-ring { position: absolute; width: 380px; height: 380px; border-radius: 50%; border: 1px solid rgba(124,92,255,0.3); animation: spin 14s linear infinite; }
+  .glow-ring::before { content:""; position:absolute; top:-4px; left:50%; width:8px; height:8px; border-radius:50%; background: var(--cyan); box-shadow: 0 0 16px var(--cyan); }
+  .glow-ring.r2 { width: 480px; height: 480px; border-color: rgba(157,255,92,0.14); animation-duration: 22s; animation-direction: reverse; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ===== section heading ===== */
+  .section { padding: 100px 0; position: relative; }
+  .eyebrow { color: var(--violet); font-weight: 700; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; }
+  .section h2 { font-size: clamp(30px, 4.5vw, 50px); margin-top: 14px; max-width: 20ch; }
+  .section .sub { color: var(--muted); font-size: 18px; max-width: 58ch; margin-top: 16px; }
+
+  /* visible by default — so the page works even if JS is blocked.
+     animations only kick in once the script adds .js to <html>. */
+  .reveal { opacity: 1; transform: none; }
+  .js .reveal { opacity: 0; transform: translateY(34px); transition: opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1); }
+  .js .reveal.show { opacity: 1; transform: none; }
+
+  /* ===== marquee ===== */
+  .marquee { overflow: hidden; margin-top: 48px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+  .marquee-track { display: flex; gap: 56px; width: max-content; animation: scroll 26s linear infinite; }
+  .marquee-track span { font-family: "Space Grotesk"; font-size: 24px; font-weight: 600; color: var(--muted); white-space: nowrap; opacity: .7; display: flex; align-items: center; gap: 14px; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  /* ===== value cards ===== */
+  .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 54px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px;
+    position: relative; overflow: hidden; transition: transform .3s, border-color .3s, background .3s;
+  }
+  .card::after { content:""; position:absolute; inset:0; background: radial-gradient(400px circle at var(--mx,50%) var(--my,0%), rgba(124,92,255,0.12), transparent 40%); opacity:0; transition:opacity .3s; pointer-events:none; }
+  .card:hover { transform: translateY(-6px); border-color: rgba(124,92,255,0.4); background: var(--surface-2); }
+  .card:hover::after { opacity: 1; }
+  .card .ico { width: 54px; height: 54px; border-radius: 16px; background: linear-gradient(145deg, rgba(124,92,255,0.25), rgba(43,217,255,0.18)); border: 1px solid var(--border); display: grid; place-items: center; font-size: 26px; margin-bottom: 22px; }
+  .card h3 { font-size: 21px; margin-bottom: 10px; }
+  .card p { color: var(--muted); font-size: 15px; }
+
+  /* ===== featured project ===== */
+  .featured-wrap { margin-top: 54px; border-radius: 30px; border: 1px solid var(--border);
+    background: linear-gradient(155deg, rgba(124,92,255,0.14), rgba(43,217,255,0.06) 60%, transparent);
+    padding: 48px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; overflow: hidden; position: relative; }
+  .featured-wrap .status-chip { display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:700; letter-spacing:.04em; padding:7px 14px; border-radius:999px; background: rgba(157,255,92,0.12); border:1px solid rgba(157,255,92,0.35); color:#9dff5c; margin-bottom: 20px; }
+  .featured-wrap .status-chip .dot { width:8px; height:8px; border-radius:50%; background:#9dff5c; box-shadow:0 0 10px #9dff5c; animation: pulse 1.6s infinite; }
+  .featured-wrap h3 { font-size: clamp(28px, 4vw, 42px); margin-bottom: 16px; }
+  .featured-wrap p { color: var(--muted); font-size: 17px; }
+  .feat-points { list-style:none; margin: 24px 0 28px; display:flex; flex-direction:column; gap:12px; }
+  .feat-points li { display:flex; gap:12px; font-size:15px; align-items:flex-start; }
+  .feat-points li::before { content:"♪"; color: var(--cyan); font-size: 18px; line-height: 1.4; }
+  .progress { margin-top: 8px; }
+  .progress .bar { height: 10px; border-radius: 999px; background: var(--surface-2); border:1px solid var(--border); overflow:hidden; }
+  .progress .bar i { display:block; height:100%; width: 0; border-radius:999px; background: var(--grad); transition: width 1.4s cubic-bezier(.2,.8,.2,1); }
+  .progress .meta { display:flex; justify-content:space-between; font-size:13px; color:var(--muted); margin-top:10px; }
+
+  .feat-visual { display:grid; place-items:center; }
+  .feat-art { width: 100%; max-width: 320px; aspect-ratio: 1; border-radius: 24px; border:1px solid var(--border); background: radial-gradient(circle at 50% 30%, rgba(124,92,255,0.35), rgba(0,0,0,0)); display:grid; place-items:center; position:relative; overflow:hidden; }
+  .feat-art .big { font-size: 96px; filter: drop-shadow(0 10px 30px rgba(124,92,255,0.5)); animation: float 5s ease-in-out infinite; }
+  .eqbar { position:absolute; bottom:0; display:flex; gap:5px; align-items:flex-end; height: 70px; }
+  .eqbar i { width:7px; background: var(--grad); border-radius:4px 4px 0 0; animation: eq 1s ease-in-out infinite; }
+  .eqbar i:nth-child(2){animation-delay:.15s}.eqbar i:nth-child(3){animation-delay:.3s}.eqbar i:nth-child(4){animation-delay:.45s}.eqbar i:nth-child(5){animation-delay:.6s}.eqbar i:nth-child(6){animation-delay:.75s}.eqbar i:nth-child(7){animation-delay:.9s}
+  @keyframes eq { 0%,100%{height:14px} 50%{height:64px} }
+
+  /* ===== process / how gamification ===== */
+  .flow-line { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 56px; position: relative; }
+  .flow-line::before { content:""; position:absolute; top: 30px; left: 8%; right: 8%; height: 2px; background: linear-gradient(90deg, var(--violet), var(--cyan), var(--lime)); opacity:.35; }
+  .step { position: relative; text-align: center; }
+  .step .node { width: 62px; height: 62px; margin: 0 auto 20px; border-radius: 50%; display: grid; place-items: center; font-size: 26px; background: var(--bg-soft); border: 2px solid var(--violet); position: relative; z-index: 2; box-shadow: 0 0 0 6px rgba(124,92,255,0.08); }
+  .step h4 { font-size: 18px; margin-bottom: 8px; }
+  .step p { color: var(--muted); font-size: 14px; }
+
+  /* ===== engagement models ===== */
+  .engage { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 40px; }
+  .engage-card { border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); padding: 32px; position: relative; overflow: hidden; }
+  .engage-card.featured { border-color: rgba(124,92,255,0.45); background: linear-gradient(155deg, rgba(124,92,255,0.14), var(--surface)); }
+  .engage-card .tag { display: inline-flex; font-size: 13px; font-weight: 700; letter-spacing: .03em; color: var(--cyan); background: var(--surface-2); border: 1px solid var(--border); padding: 7px 14px; border-radius: 999px; margin-bottom: 18px; }
+  .engage-card.featured .tag { color: var(--violet); }
+  .engage-card h3 { font-size: 23px; margin-bottom: 10px; }
+  .engage-card p { color: var(--muted); font-size: 16px; }
+
+  /* ===== services ===== */
+  .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 22px; }
+  .svc { border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); padding: 30px; transition: transform .35s, border-color .3s; }
+  .svc:hover { transform: translateY(-6px); border-color: rgba(124,92,255,0.4); }
+  .svc .ico { font-size: 30px; margin-bottom: 18px; }
+  .svc h3 { font-size: 20px; margin-bottom: 10px; }
+  .svc p { color: var(--muted); font-size: 15px; }
+  .svc ul { list-style:none; margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; }
+  .svc ul li { font-size:12px; background: var(--surface-2); border:1px solid var(--border); padding:5px 11px; border-radius:999px; }
+
+  /* ===== about / company ===== */
+  .about-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 54px; align-items: start; }
+  .about-copy p { color: var(--muted); font-size: 17px; margin-bottom: 18px; }
+  .reg-card { background: var(--surface); border:1px solid var(--border); border-radius: var(--radius); padding: 30px; }
+  .reg-card h4 { font-size: 15px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 20px; }
+  .reg-row { display:flex; justify-content:space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--border); font-size: 15px; }
+  .reg-row:last-child { border-bottom: none; }
+  .reg-row .k { color: var(--muted); }
+  .reg-row .v { text-align: right; font-weight: 600; }
+  .reg-card .verified { display:inline-flex; align-items:center; gap:8px; font-size:13px; color:#9dff5c; margin-top:18px; }
+  .sic-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+  .sic-tags span { font-size:12px; background: var(--surface-2); border:1px solid var(--border); padding:6px 12px; border-radius:999px; color: var(--text); }
+
+  /* ===== FAQ ===== */
+  .faq { margin-top: 48px; display: flex; flex-direction: column; gap: 14px; max-width: 820px; }
+  .faq-item { border: 1px solid var(--border); border-radius: 16px; background: var(--surface); overflow: hidden; }
+  .faq-q { width: 100%; text-align: left; background: none; border: none; color: var(--text); font-family: inherit; font-size: 17px; font-weight: 600; padding: 22px 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .faq-q .plus { font-size: 24px; color: var(--violet); transition: transform .3s; flex-shrink: 0; }
+  .faq-item.open .faq-q .plus { transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; color: var(--muted); padding: 0 24px; }
+  .faq-item.open .faq-a { max-height: 260px; padding-bottom: 22px; }
+
+  /* ===== contact / CTA ===== */
+  .cta-final { position: relative; border-radius: 34px; padding: 70px 50px; text-align: center; overflow: hidden;
+    background: linear-gradient(135deg, rgba(124,92,255,0.18), rgba(43,217,255,0.1)); border: 1px solid var(--border); }
+  .cta-final::before { content:""; position:absolute; inset:0; background: radial-gradient(600px 300px at 50% 0, rgba(124,92,255,0.4), transparent 60%); opacity:.5; }
+  .cta-final > * { position: relative; }
+  .cta-final h2 { font-size: clamp(32px, 5vw, 54px); }
+  .cta-final p { color: var(--muted); font-size: 19px; margin: 18px auto 34px; max-width: 50ch; }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 54px; align-items: start; }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field input, .field textarea, .field select {
+    width: 100%; background: var(--surface-2); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px;
+    color: var(--text); font-family: inherit; font-size: 15px; transition: border-color .2s, box-shadow .2s;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--violet); box-shadow: 0 0 0 3px rgba(124,92,255,0.18); }
+  .field textarea { resize: vertical; min-height: 120px; }
+  .form-note { font-size: 13px; color: var(--muted); margin-top: 10px; }
+  .contact-side h3 { font-size: 24px; margin-bottom: 16px; }
+  .contact-side .ci { display: flex; gap: 14px; align-items: center; margin-bottom: 18px; }
+  .contact-side .ci .ic { width: 44px; height: 44px; border-radius: 12px; background: var(--surface-2); border: 1px solid var(--border); display: grid; place-items: center; font-size: 20px; flex-shrink:0; }
+  .contact-side .ci b { display: block; font-size: 15px; }
+  .contact-side .ci span { color: var(--muted); font-size: 14px; }
+  .toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(120px); background: var(--grad); color: #0a0a0f; font-weight: 700; padding: 15px 26px; border-radius: 999px; box-shadow: 0 18px 50px rgba(124,92,255,0.5); transition: transform .4s cubic-bezier(.2,.8,.2,1); z-index: 100; }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  .sound-toggle { position: fixed; bottom: 22px; right: 22px; z-index: 60; display: inline-flex; align-items: center; gap: 8px; padding: 11px 16px; border-radius: 999px; background: rgba(13,13,20,0.82); backdrop-filter: blur(10px); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; transition: transform .2s, border-color .2s, box-shadow .3s; }
+  .sound-toggle:hover { transform: translateY(-2px); border-color: rgba(124,92,255,0.5); }
+  .sound-toggle.on { border-color: rgba(157,255,92,0.55); box-shadow: 0 0 24px rgba(157,255,92,0.18); }
+  .sound-toggle .ic { font-size: 16px; line-height: 1; }
+  @media (max-width: 560px) { .sound-toggle { bottom: 16px; right: 16px; padding: 10px 13px; } .sound-toggle .lbl { display: none; } }
+
+  /* ===== footer ===== */
+  footer { border-top: 1px solid var(--border); padding: 54px 0 40px; margin-top: 40px; }
+  .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
+  .foot .col { max-width: 280px; }
+  .foot .col h5 { font-size: 14px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 16px; }
+  .foot .col a { display: block; color: var(--muted); font-size: 15px; margin-bottom: 10px; transition: color .2s; }
+  .foot .col a:hover { color: var(--text); }
+  .foot-bottom { margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; color: var(--muted); font-size: 14px; }
+  .legal-links a { transition: color .2s; }
+  .legal-links a:hover { color: var(--text); }
+
+  /* ===== app showcase / zoom scene ===== */
+  .status-chip { display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:700; letter-spacing:.04em; padding:7px 14px; border-radius:999px; background: rgba(157,255,92,0.12); border:1px solid rgba(157,255,92,0.35); color:#9dff5c; }
+  .status-chip .dot { width:8px; height:8px; border-radius:50%; background:#9dff5c; box-shadow:0 0 10px #9dff5c; animation: pulse 1.6s infinite; }
+
+  .app-section { position: relative; }
+  .zoom-wrap { position: relative; height: 340vh; }
+  .zoom-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; display: grid; place-items: center; }
+  .stage-spot { position: absolute; inset: 0; background: radial-gradient(58% 50% at 50% 44%, rgba(124,92,255,0.22), transparent 70%); pointer-events: none; }
+
+  .scene-headline { position: absolute; top: 9%; left: 0; right: 0; text-align: center; z-index: 8; padding: 0 20px; will-change: opacity, transform; }
+  .scene-headline h2 { font-size: clamp(32px, 6vw, 64px); margin: 16px 0 10px; }
+  .scene-headline h2 .amp { color: var(--violet); }
+  .scene-headline p { color: var(--muted); font-size: 17px; }
+  .scroll-hint { margin-top: 22px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); animation: bob 1.8s ease-in-out infinite; }
+  @keyframes bob { 50% { transform: translateY(8px); opacity: .55; } }
+
+  .info-scrim { position: absolute; left: 0; right: 0; bottom: 0; height: 48%; background: linear-gradient(0deg, rgba(7,7,11,0.94) 28%, rgba(7,7,11,0.4) 70%, transparent); z-index: 7; pointer-events: none; }
+  .zoom-info { position: absolute; left: 0; right: 0; bottom: 13%; z-index: 9; min-height: 150px; pointer-events: none; }
+  .zstep { position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 20px); width: min(560px, 90vw); text-align: center; padding: 0 20px; opacity: 0; transition: opacity .55s ease, transform .55s ease; }
+  .zstep.active { opacity: 1; transform: translate(-50%, 0); }
+  .zstep .k { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 10px; }
+  .zstep h3 { font-size: clamp(23px, 3.6vw, 34px); margin-bottom: 10px; }
+  .zstep p { color: var(--muted); font-size: 16px; }
+  .zoom-dots { position: absolute; bottom: 6.5%; left: 50%; transform: translateX(-50%); display: flex; gap: 9px; z-index: 9; pointer-events: none; }
+  .zoom-dots span { width: 8px; height: 8px; border-radius: 999px; background: rgba(255,255,255,0.2); transition: background .35s, width .35s; }
+  .zoom-dots span.on { background: var(--violet); width: 24px; box-shadow: 0 0 12px rgba(124,92,255,0.6); }
+
+  .zoom-scene { position: relative; width: 640px; max-width: 92vw; height: 400px; transform-origin: 50% 33%; will-change: transform; }
+  .grand { position: absolute; inset: 0; }
+
+  .floor-glow { position: absolute; bottom: -6px; left: 8%; right: 8%; height: 54px; background: radial-gradient(ellipse at center, rgba(124,92,255,0.28), transparent 70%); filter: blur(10px); }
+  .lid {
+    position: absolute; left: 8%; right: 8%; bottom: 150px; height: 120px;
+    background: linear-gradient(120deg, #2c2c38 0%, #15151d 52%, #0a0a10 100%);
+    border-radius: 50px 72px 12px 12px / 42px 60px 12px 12px;
+    transform: perspective(720px) rotateX(52deg); transform-origin: bottom center;
+    box-shadow: 0 -18px 50px rgba(124,92,255,0.18); z-index: 1;
+  }
+  .lid::after { content:""; position:absolute; inset:0; border-radius:inherit; box-shadow: inset 0 3px 0 rgba(255,255,255,0.12); }
+  .case {
+    position: absolute; left: 5%; right: 5%; bottom: 54px; height: 110px;
+    background: linear-gradient(180deg, #26262f 0%, #101017 45%, #050508 100%);
+    border-radius: 26px 30px 14px 14px;
+    box-shadow: 0 34px 70px rgba(0,0,0,0.65), inset 0 2px 0 rgba(255,255,255,0.10), inset 0 -22px 30px rgba(0,0,0,0.5);
+    z-index: 2;
+  }
+  .case::before { content:""; position:absolute; top:8px; left:8%; width:42%; height:30%; background: linear-gradient(120deg, rgba(255,255,255,0.18), transparent); border-radius:20px; filter: blur(2px); }
+  .keybed {
+    position: absolute; bottom: 56px; left: 13%; right: 13%; height: 30px; border-radius: 4px; overflow: hidden; z-index: 4;
+    background: linear-gradient(180deg, #ffffff, #cfcfdc);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5), inset 0 -3px 6px rgba(0,0,0,0.15);
+  }
+  .keybed::before { content:""; position:absolute; inset:0; background: repeating-linear-gradient(90deg, transparent 0 15px, rgba(0,0,0,0.18) 15px 16px); }
+  .keybed::after { content:""; position:absolute; top:0; left:0; right:0; height:58%; background: repeating-linear-gradient(90deg, #0a0a0f 0 8px, transparent 8px 16px, #0a0a0f 16px 24px, transparent 24px 46px); }
+  .leg { position: absolute; bottom: 0; width: 18px; height: 64px; background: linear-gradient(180deg, #1a1a22, #070709); border-radius: 0 0 6px 6px; z-index: 1; box-shadow: 0 10px 18px rgba(0,0,0,0.5); }
+  .leg.l1 { left: 12%; transform: skewX(4deg); }
+  .leg.l2 { right: 12%; transform: skewX(-4deg); }
+  .leg.l3 { left: 50%; transform: translateX(-50%); }
+
+  .ipad {
+    position: absolute; bottom: 150px; left: 50%; transform: translateX(-50%);
+    width: 172px; height: 232px; border-radius: 22px; padding: 9px; z-index: 5;
+    background: linear-gradient(160deg, #1c1c26, #0a0a10); border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 26px 60px rgba(0,0,0,0.6), 0 0 50px rgba(124,92,255,0.25);
+  }
+  .ipad-cam { position: absolute; top: 4px; left: 50%; transform: translateX(-50%); width: 5px; height: 5px; border-radius: 50%; background: #000; box-shadow: 0 0 0 2px rgba(255,255,255,0.06); }
+  .ipad-screen { width: 100%; height: 100%; border-radius: 14px; overflow: hidden; background: #0b0b12; display: flex; flex-direction: column; position: relative; }
+  .pa-top { padding: 10px 10px 6px; text-align: center; background: linear-gradient(180deg, rgba(124,92,255,0.22), transparent); }
+  .pa-app { font-size: 8px; letter-spacing: .1em; color: var(--cyan); }
+  .pa-song { font-family: "Space Grotesk"; font-size: 12px; font-weight: 700; margin-top: 2px; }
+  .pa-sub { font-size: 8px; color: var(--muted); }
+  .pa-roll { flex: 1; position: relative; overflow: hidden; margin: 4px 8px; border-radius: 8px; border: 1px solid var(--border); background: linear-gradient(180deg, rgba(124,92,255,0.10), transparent); }
+  /* 8 lanes that line up with the 8 keys below */
+  .pa-note { position: absolute; width: 10%; border-radius: 3px; opacity: .95; animation: fall 2.4s linear infinite; box-shadow: 0 0 8px rgba(124,92,255,0.5); }
+  .pa-note.a { left: 1.25%;  height: 24px; background: var(--violet); animation-delay: 0s; }
+  .pa-note.b { left: 26.25%; height: 18px; background: var(--cyan);   animation-delay: .5s; }
+  .pa-note.c { left: 51.25%; height: 30px; background: var(--pink);   animation-delay: 1s; }
+  .pa-note.d { left: 76.25%; height: 22px; background: var(--lime);   animation-delay: 1.5s; }
+  .pa-note.e { left: 26.25%; height: 16px; background: var(--cyan);   animation-delay: 2s; }
+  .pa-keys { display: flex; height: 30px; margin: 0 8px 4px; }
+  .pa-keys i { flex: 1; background: linear-gradient(180deg, #f4f4f8, #cdcddb); margin: 0 1px; border-radius: 0 0 3px 3px; }
+  .pa-keys i.lit { background: linear-gradient(180deg, #bda4ff, #7c5cff); box-shadow: 0 0 10px var(--violet); }
+  .pa-score { display: flex; justify-content: space-between; padding: 5px 10px 9px; font-size: 8px; font-family: "Space Grotesk"; }
+  .pa-score .c { color: var(--lime); }
+
+  .coming { text-align: center; max-width: 760px; margin: 0 auto; padding: 90px 0 0; }
+  .coming .eyebrow { display: block; }
+  .coming h2 { font-size: clamp(30px, 4.5vw, 50px); margin: 14px 0 16px; }
+  .coming .sub { margin: 0 auto; }
+  .coming-feats { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 28px 0; }
+  .coming-feats li { font-size: 14px; background: var(--surface-2); border: 1px solid var(--border); padding: 9px 16px; border-radius: 999px; }
+  .notify { display: flex; gap: 10px; max-width: 460px; margin: 0 auto 14px; }
+  .notify input { flex: 1; background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px; padding: 14px 18px; color: var(--text); font-family: inherit; font-size: 15px; }
+  .notify input:focus { outline: none; border-color: var(--violet); box-shadow: 0 0 0 3px rgba(124,92,255,0.18); }
+  .coming .form-note a { color: var(--text); text-decoration: underline; }
+
+  /* ===== responsive ===== */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .phone-stage { order: -1; min-height: 460px; margin-bottom: 10px; }
+    .cards-grid, .work-grid, .engage { grid-template-columns: 1fr; }
+    .zoom-wrap { height: 300vh; }
+    .zoom-scene { transform-origin: 50% 35%; }
+    .zstep p { font-size: 15px; }
+    .notify { flex-direction: column; }
+    .coming { padding-top: 60px; }
+    .featured-wrap { grid-template-columns: 1fr; padding: 32px; }
+    .feat-visual { order: -1; }
+    .flow-line { grid-template-columns: 1fr 1fr; gap: 36px 20px; }
+    .flow-line::before { display: none; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; flex-direction: column; background: rgba(7,7,11,0.97); padding: 24px; border-bottom: 1px solid var(--border); gap: 20px; }
+    .nav-links.open { display: flex; }
+    .menu-toggle { display: block; }
+  }
+  @media (max-width: 560px) {
+    .hero-stats { gap: 28px; }
+    .section { padding: 70px 0; }
+    .cta-final { padding: 50px 24px; }
+    .reg-row { flex-direction: column; gap: 2px; }
+    .reg-row .v { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<div class="flow-bg">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+</div>
+<div class="grain"></div>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="#" class="logo"><span class="mark">▶</span> Eponymical Games</a>
+    <nav class="nav-links" id="navLinks">
+      <a class="link" href="#what">What we do</a>
+      <a class="link" href="#app">Learn Piano</a>
+      <a class="link" href="#approach">Approach</a>
+      <a class="btn btn-primary" href="#contact">Get in touch →</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="pill reveal"><span class="live"></span> London-based game studio · Est. 2023</div>
+      <h1 class="reveal">We turn learning into a game worth <span class="gradient-text">playing</span></h1>
+      <p class="lead reveal">Eponymical Games builds gamified, educational apps that make real skills feel like play. Levels, streaks, rewards and feedback loops — engineered around how people actually learn.</p>
+      <div class="hero-cta reveal">
+        <a href="#project" class="btn btn-primary">See what we're building →</a>
+        <a href="#what" class="btn btn-ghost">How it works</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="stat"><div class="num gradient-text" data-count="100" data-suffix="%">0</div><div class="lbl">learning, gamified</div></div>
+        <div class="stat"><div class="num gradient-text">2023</div><div class="lbl">London studio, est.</div></div>
+        <div class="stat"><div class="num gradient-text">UK</div><div class="lbl">registered studio</div></div>
+      </div>
+    </div>
+
+    <div class="phone-stage reveal">
+      <div class="glow-ring"></div>
+      <div class="glow-ring r2"></div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="screen-top">
+            <div class="app-tag">Piano · Learn by playing</div>
+            <div class="song">Prelude in C Major</div>
+            <div class="lvl">J.S. Bach · Beginner+</div>
+          </div>
+          <div class="roll">
+            <div class="note n1"></div><div class="note n2"></div><div class="note n3"></div>
+            <div class="note n4"></div><div class="note n5"></div>
+          </div>
+          <div class="keys">
+            <div class="key"></div><div class="key"></div><div class="key lit"></div><div class="key"></div>
+            <div class="key lit"></div><div class="key"></div><div class="key"></div>
+          </div>
+          <div class="score-bar">
+            <span>Score <b>8,420</b></span>
+            <span class="combo">🔥 24x combo</span>
+            <span>⭐ 98%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="wrap">
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>🎮 Gamification</span><span>📚 EdTech</span><span>🎹 Music learning</span><span>🏆 Reward systems</span><span>🔥 Streaks &amp; XP</span><span>📱 iOS &amp; Android</span>
+      <span>🎮 Gamification</span><span>📚 EdTech</span><span>🎹 Music learning</span><span>🏆 Reward systems</span><span>🔥 Streaks &amp; XP</span><span>📱 iOS &amp; Android</span>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE DO -->
+<section class="section" id="what">
+  <div class="wrap">
+    <div class="eyebrow reveal">What we do</div>
+    <h2 class="reveal">Educational games &amp; gamification, done properly</h2>
+    <p class="sub reveal">We don't bolt points onto boring software. We design the whole experience around motivation, mastery and progress — so people keep coming back and actually learn.</p>
+    <div class="cards-grid">
+      <div class="card reveal">
+        <div class="ico">🎮</div>
+        <h3>Learning games</h3>
+        <p>Original game-based apps where the gameplay <em>is</em> the lesson. Every level teaches a real skill — music, language, logic, you name it.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico">🏆</div>
+        <h3>Gamification systems</h3>
+        <p>XP, streaks, levels, badges and reward loops grounded in behavioural science — engagement that lasts beyond the novelty.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico">🧠</div>
+        <h3>Adaptive learning</h3>
+        <p>Difficulty that flexes to each player. The right challenge at the right moment keeps people in flow and out of frustration.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico">🎨</div>
+        <h3>Game &amp; UX design</h3>
+        <p>Playful, polished interfaces with motion, sound and feedback that make every interaction feel rewarding.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico">📱</div>
+        <h3>iOS &amp; Android builds</h3>
+        <p>From prototype to store-ready app on both platforms, with the performance and polish a game demands.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico">📊</div>
+        <h3>Progress &amp; analytics</h3>
+        <p>Meaningful progress tracking for players and clear engagement data for teams — so the loop keeps improving.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APP SHOWCASE: LEARN PIANO -->
+<section class="app-section" id="app">
+  <div class="zoom-wrap">
+    <div class="zoom-sticky">
+      <div class="stage-spot"></div>
+
+      <!-- entrance headline, fades out as the zoom begins -->
+      <div class="scene-headline" id="sceneHeadline">
+        <span class="status-chip"><span class="dot"></span> Coming soon</span>
+        <h2>Learn Piano<span class="amp">:</span> Play Songs</h2>
+        <p>Your favourite songs, one falling note at a time.</p>
+        <div class="scroll-hint">Scroll to step inside ↓</div>
+      </div>
+
+      <!-- the scene that zooms on scroll -->
+      <div class="zoom-scene" id="zoomScene">
+        <div class="grand">
+          <div class="floor-glow"></div>
+          <div class="lid"></div>
+          <div class="leg l1"></div>
+          <div class="leg l2"></div>
+          <div class="leg l3"></div>
+          <div class="case"></div>
+          <div class="keybed"></div>
+
+          <!-- iPad on the piano, running the app -->
+          <div class="ipad">
+            <div class="ipad-cam"></div>
+            <div class="ipad-screen">
+              <div class="pa-top">
+                <div class="pa-app">🎹 LEARN PIANO</div>
+                <div class="pa-song">Minuet in G</div>
+                <div class="pa-sub">J.S. Bach · Level 3</div>
+              </div>
+              <div class="pa-roll">
+                <div class="pa-note a"></div><div class="pa-note b"></div><div class="pa-note c"></div>
+                <div class="pa-note d"></div><div class="pa-note e"></div>
+              </div>
+              <div class="pa-keys"><i></i><i></i><i class="lit"></i><i></i><i class="lit"></i><i></i><i></i><i></i></div>
+              <div class="pa-score"><span>★ 96%</span><span class="c">🔥 18x</span><span>9,140</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- readability scrim + scroll-synced app info -->
+      <div class="info-scrim"></div>
+      <div class="zoom-info" id="zoomInfo">
+        <div class="zstep" data-step="0">
+          <div class="k">Learn by playing</div>
+          <h3>Real songs, not boring drills</h3>
+          <p>Start with royalty-free, public-domain classics — Bach, Beethoven and more — and play music you actually want to learn.</p>
+        </div>
+        <div class="zstep" data-step="1">
+          <div class="k">In time with the music</div>
+          <h3>Notes fall, you play</h3>
+          <p>Every note drops in rhythm. Hit the right key as it lands and get instant, note-by-note feedback.</p>
+        </div>
+        <div class="zstep" data-step="2">
+          <div class="k">Stay in the game</div>
+          <h3>Combos, streaks &amp; XP</h3>
+          <p>Score points, build combos and keep your daily streak alive — practice that finally feels like play.</p>
+        </div>
+        <div class="zstep" data-step="3">
+          <div class="k">Made for you</div>
+          <h3>Adapts as you improve</h3>
+          <p>Difficulty grows with your skill, from your first note to a full song — on iOS &amp; Android.</p>
+        </div>
+      </div>
+
+      <div class="zoom-dots" id="zoomDots"><span></span><span></span><span></span><span></span></div>
+    </div>
+  </div>
+
+  <!-- COMING SOON PANEL -->
+  <div class="wrap">
+    <div class="coming reveal">
+      <span class="eyebrow">Learn Piano: Play Songs</span>
+      <h2>Real songs. Real skills. <span class="gradient-text">Coming soon.</span></h2>
+      <p class="sub">Our flagship app, in active development. Learn to play the piano by playing the songs you love — notes fall in time with the music, you hit the keys, build combos and level up. Practice that feels like a game you actually want to open every day.</p>
+      <ul class="coming-feats">
+        <li>🎵 Learn by playing real songs</li>
+        <li>🎯 Instant note-by-note feedback</li>
+        <li>🔥 Streaks, XP &amp; daily goals</li>
+        <li>📈 Adaptive difficulty</li>
+        <li>📱 iOS &amp; Android</li>
+      </ul>
+      <form class="notify" id="notifyForm">
+        <input type="email" placeholder="you@email.com" aria-label="Email" required />
+        <button type="submit" class="btn btn-primary">Notify me at launch →</button>
+      </form>
+      <p class="form-note">Be first to play. We'll only email you about the launch. See our <a href="privacy-policy.html">Privacy Policy</a> &amp; <a href="terms-of-service.html">Terms of Service</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="section" id="approach">
+  <div class="wrap">
+    <div class="eyebrow reveal">Our approach</div>
+    <h2 class="reveal">How we turn a skill into a game</h2>
+    <p class="sub reveal">A repeatable loop behind every app we build — from the core idea to a habit people keep.</p>
+    <div class="flow-line">
+      <div class="step reveal"><div class="node">🎯</div><h4>Define the skill</h4><p>Pin down exactly what players should learn and how we'll measure real progress.</p></div>
+      <div class="step reveal"><div class="node">🕹️</div><h4>Design the loop</h4><p>Build the core gameplay so practising the skill is the fun part — not a chore beside it.</p></div>
+      <div class="step reveal"><div class="node">🏅</div><h4>Layer rewards</h4><p>Add XP, streaks, levels and feedback that motivate without manipulating.</p></div>
+      <div class="step reveal"><div class="node">📈</div><h4>Tune with data</h4><p>Watch how people play, adapt the difficulty, and sharpen the loop release after release.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES / WHO -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow reveal">Work with us</div>
+    <h2 class="reveal">From learning games to apps that grow your business</h2>
+    <p class="sub reveal">Hire us by the hour or hand us the whole thing — we build turnkey apps for businesses, local stores and loyalty programs, on iOS and Android.</p>
+
+    <div class="engage reveal">
+      <div class="engage-card">
+        <div class="tag">⏱️ Hourly development</div>
+        <h3>Pay by the hour</h3>
+        <p>Need a developer on demand? Plug into our team at an hourly rate — perfect for ongoing work, fixes, features and experiments without a fixed scope.</p>
+      </div>
+      <div class="engage-card featured">
+        <div class="tag">📦 Turnkey delivery</div>
+        <h3>Done for you, end to end</h3>
+        <p>We take your idea from concept to a launched product — design, build, store submission and support. One team, one price, zero loose ends.</p>
+      </div>
+    </div>
+
+    <div class="work-grid">
+      <div class="svc reveal">
+        <div class="ico">🏢</div>
+        <h3>Business apps</h3>
+        <p>Turnkey mobile apps built around your business — bookings, orders, customer accounts and whatever your operation needs to run smoothly.</p>
+        <ul><li>iOS &amp; Android</li><li>Custom features</li><li>Backend</li><li>Launch</li></ul>
+      </div>
+      <div class="svc reveal">
+        <div class="ico">🏪</div>
+        <h3>Apps for local stores</h3>
+        <p>Get your shop in customers' pockets — catalogue, online orders, click &amp; collect and push offers that bring people back through the door.</p>
+        <ul><li>Catalogue</li><li>Orders</li><li>Push offers</li><li>Payments</li></ul>
+      </div>
+      <div class="svc reveal">
+        <div class="ico">🎁</div>
+        <h3>Loyalty programs</h3>
+        <p>Gamified loyalty that actually keeps people coming back — points, tiers, stamp cards, rewards and referrals, built on what we know about engagement.</p>
+        <ul><li>Points &amp; tiers</li><li>Stamp cards</li><li>Rewards</li><li>Referrals</li></ul>
+      </div>
+      <div class="svc reveal">
+        <div class="ico">🚀</div>
+        <h3>Build a learning app</h3>
+        <p>Have an idea for an educational game? We take it from concept to a polished, store-ready app on iOS and Android.</p>
+        <ul><li>Concept</li><li>Game design</li><li>Development</li><li>Launch</li></ul>
+      </div>
+      <div class="svc reveal">
+        <div class="ico">✨</div>
+        <h3>Gamify what you have</h3>
+        <p>Already have a product? We design and build the gamification layer that lifts engagement and retention.</p>
+        <ul><li>XP &amp; levels</li><li>Streaks</li><li>Rewards</li><li>Onboarding</li></ul>
+      </div>
+      <div class="svc reveal">
+        <div class="ico">🛠️</div>
+        <h3>Custom software</h3>
+        <p>Beyond apps — we build the tools, dashboards and integrations your business runs on, hourly or turnkey.</p>
+        <ul><li>Dashboards</li><li>Integrations</li><li>Automation</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow reveal">FAQ</div>
+    <h2 class="reveal">Good questions, honest answers</h2>
+    <div class="faq">
+      <div class="faq-item reveal"><button class="faq-q">What does Eponymical Games actually make? <span class="plus">+</span></button><div class="faq-a"><p>We build gamified, educational apps — games whose gameplay teaches a real skill — and we design gamification systems (XP, streaks, rewards) for other products. Our focus is learning made genuinely fun.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">What are you working on right now? <span class="plus">+</span></button><div class="faq-a"><p>Our current project is a piano-learning app that's in active development. It turns learning to play the piano into a game — falling notes, combos, levels and daily streaks. Early access is coming soon.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Which platforms do you build for? <span class="plus">+</span></button><div class="faq-a"><p>iOS and Android, with the performance and polish a real game needs. We design mobile-first but build for great experiences across devices.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Can you gamify our existing product? <span class="plus">+</span></button><div class="faq-a"><p>Yes. Beyond our own apps, we design and build gamification layers for EdTech and other teams — grounded in behavioural science, not just points for the sake of points.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="cta-final reveal">
+      <h2>Let's make learning playable</h2>
+      <p>Want early access to the piano app, or to build something gamified together? Drop us a line — we'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-grid">
+      <form id="leadForm">
+        <div class="field"><label for="name">Your name</label><input id="name" type="text" placeholder="Jane Doe" required /></div>
+        <div class="field"><label for="email">Email</label><input id="email" type="email" placeholder="you@email.com" required /></div>
+        <div class="field"><label for="topic">I'm interested in</label>
+          <select id="topic">
+            <option>Early access to the piano app</option>
+            <option>Building a learning game</option>
+            <option>Gamifying my product</option>
+            <option>Partnership / consulting</option>
+            <option>Just saying hi</option>
+          </select>
+        </div>
+        <div class="field"><label for="msg">Message</label><textarea id="msg" placeholder="Tell us a little about what you have in mind..."></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send message →</button>
+        <p class="form-note">By submitting, you agree to be contacted about your enquiry. No spam, ever.</p>
+      </form>
+      <div class="contact-side reveal">
+        <h3>Reach the studio</h3>
+        <div class="ci"><div class="ic">✉️</div><div><b>direct@eponymicalgames.com</b><span>General &amp; project enquiries</span></div></div>
+        <div class="ci"><div class="ic">🎹</div><div><b>Early access list</b><span>Be first to try the piano app</span></div></div>
+        <div class="ci"><div class="ic">📍</div><div><b>86–90 Paul Street, London</b><span>EC2A 4NE, United Kingdom</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="col">
+        <a href="#" class="logo" style="margin-bottom:14px"><span class="mark">▶</span> Eponymical Games</a>
+        <p style="color:var(--muted); font-size:15px">A London game studio building gamified, educational apps that make learning genuinely fun.</p>
+      </div>
+      <div class="col" style="max-width:none"><h5>Studio</h5><a href="#what">What we do</a><a href="#project">Current project</a><a href="#approach">Approach</a></div>
+      <div class="col" style="max-width:none"><h5>Work with us</h5><a href="#contact">Build a learning game</a><a href="#contact">Gamify your product</a><a href="#contact">Partner with us</a></div>
+      <div class="col" style="max-width:none"><h5>Contact</h5><a href="mailto:direct@eponymicalgames.com">direct@eponymicalgames.com</a><a href="#contact">86–90 Paul Street,<br>London, EC2A 4NE, UK</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Eponymical Games Ltd · London, UK</span>
+      <span class="legal-links"><a href="privacy-policy.html">Privacy Policy</a> · <a href="terms-of-service.html">Terms of Service</a></span>
+    </div>
+  </div>
+</footer>
+
+<button class="sound-toggle" id="soundToggle" aria-label="Play gentle Bach music">
+  <span class="ic" id="soundIc">🔈</span><span class="lbl" id="soundLbl">Play Bach</span>
+</button>
+
+<div class="toast" id="toast">Thanks! We'll be in touch soon 🎹</div>
+
+<script>
+  // mark JS as active — enables the reveal animations. if this script is ever
+  // blocked (e.g. by CSP), the class is never added and all content stays visible.
+  document.documentElement.classList.add('js');
+
+  const header = document.getElementById('header');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 10));
+
+  const toggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // animated counters
+  const counters = document.querySelectorAll('[data-count]');
+  const cio = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      let cur = 0; const step = target / 50;
+      const tick = () => {
+        cur += step;
+        if (cur >= target) { el.textContent = target + suffix; }
+        else { el.textContent = Math.floor(cur) + suffix; requestAnimationFrame(tick); }
+      };
+      tick(); cio.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => cio.observe(c));
+
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mousemove', (ev) => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (ev.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (ev.clientY - r.top) + 'px');
+    });
+  });
+
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  const form = document.getElementById('leadForm');
+  const toast = document.getElementById('toast');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    toast.classList.add('show');
+    form.reset();
+    setTimeout(() => toast.classList.remove('show'), 3500);
+  });
+
+  // scroll-driven zoom into the iPad, synced with rotating app info
+  const zoomWrap = document.querySelector('.zoom-wrap');
+  const zoomScene = document.getElementById('zoomScene');
+  const sceneHeadline = document.getElementById('sceneHeadline');
+  const zSteps = Array.from(document.querySelectorAll('.zstep'));
+  const zDots = Array.from(document.querySelectorAll('.zoom-dots span'));
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (zoomWrap && zoomScene) {
+    const STEPS = zSteps.length || 4;
+    const START = 0.12;             // info begins after the entrance headline
+    let lastActive = -2, ticking = false;
+    const update = () => {
+      const rect = zoomWrap.getBoundingClientRect();
+      const total = zoomWrap.offsetHeight - innerHeight;
+      let p = total > 0 ? (-rect.top / total) : 0;
+      p = Math.min(1, Math.max(0, p));
+
+      // gentle, framed zoom (not an extreme blow-up)
+      const scale = reduceMotion ? 1.6 : (1 + p * 2.6);
+      zoomScene.style.transform = 'scale(' + scale.toFixed(3) + ')';
+
+      // entrance headline fades out as the zoom starts
+      if (sceneHeadline) {
+        const h = Math.max(0, 1 - p / START);
+        sceneHeadline.style.opacity = h.toFixed(2);
+        sceneHeadline.style.transform = 'translateY(' + (-p * 50).toFixed(1) + 'px)';
+      }
+
+      // which app-info step is active for this scroll position
+      let active = -1;
+      if (p >= START) active = Math.min(STEPS - 1, Math.floor((p - START) / ((1 - START) / STEPS)));
+      if (active !== lastActive) {
+        zSteps.forEach((el, i) => el.classList.toggle('active', i === active));
+        zDots.forEach((d, i) => d.classList.toggle('on', i === active));
+        lastActive = active;
+      }
+      ticking = false;
+    };
+    const onZoomScroll = () => { if (!ticking) { requestAnimationFrame(update); ticking = true; } };
+    addEventListener('scroll', onZoomScroll, { passive: true });
+    addEventListener('resize', update);
+    update();
+  }
+
+  // notify-me form (coming soon)
+  const notifyForm = document.getElementById('notifyForm');
+  if (notifyForm) {
+    notifyForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      toast.classList.add('show');
+      notifyForm.reset();
+      setTimeout(() => toast.classList.remove('show'), 3500);
+    });
+  }
+
+  // ── gentle, royalty-free Bach (Prelude in C, BWV 846) synthesised with Web Audio ──
+  // public-domain composition, generated on the fly, kept deliberately quiet.
+  (() => {
+    const btn = document.getElementById('soundToggle');
+    if (!btn) return;
+    const ic = document.getElementById('soundIc');
+    const lbl = document.getElementById('soundLbl');
+    const midi = (m) => 440 * Math.pow(2, (m - 69) / 12);
+    // the five-note arpeggio figure per bar (BWV 846, first four bars)
+    const BARS = [
+      [48, 52, 55, 60, 64], // C major
+      [48, 50, 57, 62, 65], // D minor 7 / C
+      [47, 50, 55, 62, 65], // G7 / B
+      [48, 52, 55, 60, 64]  // C major
+    ];
+    const FIG = [0, 1, 2, 3, 4, 2, 3, 4];     // Bach's repeating figure
+    const SEQ = [];
+    BARS.forEach((bar) => { for (let r = 0; r < 2; r++) FIG.forEach((i) => SEQ.push(midi(bar[i]))); });
+    const SIXTEENTH = 0.21;                    // calm tempo
+
+    let actx = null, master = null, playing = false, idx = 0, nextTime = 0, timer = null;
+    const voice = (freq, t, dur) => {
+      const o = actx.createOscillator(); o.type = 'triangle'; o.frequency.value = freq;
+      const g = actx.createGain();
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.linearRampToValueAtTime(1, t + 0.012);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g); g.connect(master);
+      o.start(t); o.stop(t + dur + 0.03);
+    };
+    const schedule = () => {
+      if (!playing) return;
+      while (nextTime < actx.currentTime + 0.3) {
+        voice(SEQ[idx % SEQ.length], nextTime, SIXTEENTH * 1.8);
+        idx++; nextTime += SIXTEENTH;
+      }
+      timer = setTimeout(schedule, 60);
+    };
+    const start = () => {
+      if (!actx) {
+        actx = new (window.AudioContext || window.webkitAudioContext)();
+        master = actx.createGain();
+        master.gain.value = 0.05;              // quiet
+        master.connect(actx.destination);
+      }
+      actx.resume();
+      playing = true; idx = 0; nextTime = actx.currentTime + 0.1;
+      schedule();
+      btn.classList.add('on'); ic.textContent = '🔊'; lbl.textContent = 'Pause';
+    };
+    const stop = () => {
+      playing = false; clearTimeout(timer);
+      if (actx) actx.suspend();
+      btn.classList.remove('on'); ic.textContent = '🔈'; lbl.textContent = 'Play Bach';
+    };
+    btn.addEventListener('click', () => playing ? stop() : start());
+  })();
+</script>
+</body>
+</html>
