@@ -1,0 +1,9 @@
+2026-06-11
+
+- Added real form submission for the launch notification and contact forms.
+- Both forms now send requests to direct@eponymicalgames.com via FormSubmit.
+- Added GitHub Pages custom domain configuration for eponymicalgames.com.
+- Fixed mobile horizontal overflow on the main page.
+
+Rollback:
+- Use git commit fc2e641 to return to the initial static site.

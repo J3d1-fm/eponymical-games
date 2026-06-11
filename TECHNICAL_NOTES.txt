@@ -1,0 +1,27 @@
+Eponymical Games static site technical notes
+
+Source:
+- Static HTML site with no build step.
+- Main page: index.html.
+- Legal pages: privacy-policy.html and terms-of-service.html.
+
+Forms:
+- The launch notification form and contact form post to https://formsubmit.co/direct@eponymicalgames.com.
+- FormSubmit may require the first submission to be confirmed from direct@eponymicalgames.com before delivery is fully active.
+- The configured redirect targets are:
+  - https://eponymicalgames.com/?submitted=notify
+  - https://eponymicalgames.com/?submitted=contact
+
+Hosting:
+- GitHub repository: https://github.com/J3d1-fm/eponymical-games
+- GitHub Pages source: main branch, repository root.
+- Custom domain file: CNAME contains eponymicalgames.com.
+
+DNS:
+- The domain was still using Wix nameservers during setup: ns2.wixdns.net and ns3.wixdns.net.
+- To make GitHub Pages live on the apex domain, authoritative DNS must point eponymicalgames.com to GitHub Pages.
+- Keep Google Workspace MX, SPF, and DKIM records intact when changing DNS.
+
+Rollback:
+- Current deployed change commit: 0b2f61e.
+- Baseline static site commit: fc2e641.
