@@ -35,5 +35,5 @@ DNS:
   - /privacy and /support currently return 404; use the explicit URLs above.
 
 Rollback:
-- Current deployed change commit: 0b2f61e.
+- Privacy policy App Store update commit: e882dc5.
 - Baseline static site commit: fc2e641.
