@@ -1,3 +1,10 @@
+2026-06-26
+
+- Updated privacy-policy.html for Learn Piano: Play Songs App Store/TestFlight readiness.
+- Added explicit coverage for Firebase, RevenueCat, Apple, AdMob/Google UMP, Meta/Facebook, IDFA/ATT, microphone/audio analysis, purchases/subscriptions, push tokens and optional AI/cloud analysis endpoints.
+- Documented App Store Connect URL choices in TECHNICAL_NOTES.txt:
+  Privacy Policy, Support URL and Marketing URL.
+
 2026-06-11
 
 - Switched eponymicalgames.com nameservers in Squarespace from Wix to Squarespace/Google Cloud DNS.

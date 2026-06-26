@@ -4,6 +4,10 @@ Source:
 - Static HTML site with no build step.
 - Main page: index.html.
 - Legal pages: privacy-policy.html and terms-of-service.html.
+- App Store Connect URLs:
+  - Privacy Policy URL: https://eponymicalgames.com/privacy-policy.html
+  - Support URL: https://eponymicalgames.com/#contact
+  - Marketing URL: https://eponymicalgames.com/
 
 Forms:
 - The launch notification form and contact form post to https://formsubmit.co/direct@eponymicalgames.com.
@@ -24,6 +28,11 @@ DNS:
 - The www host is a CNAME to j3d1-fm.github.io.
 - Google Workspace MX, SPF, and DKIM records were preserved in Squarespace DNS.
 - GitHub Pages HTTPS enforcement is pending certificate issuance after DNS propagation.
+- Public URL verification on 2026-06-26:
+  - https://eponymicalgames.com returned HTTP 200.
+  - https://eponymicalgames.com/privacy-policy.html returned HTTP 200.
+  - https://eponymicalgames.com/terms-of-service.html returned HTTP 200.
+  - /privacy and /support currently return 404; use the explicit URLs above.
 
 Rollback:
 - Current deployed change commit: 0b2f61e.
