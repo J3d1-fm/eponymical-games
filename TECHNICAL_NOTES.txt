@@ -53,12 +53,14 @@ DNS:
   - GitHub Pages status for the privacy and terms subdomain repositories was
     `built`, with custom domains set to privacy.eponymicalgames.com and
     terms.eponymicalgames.com.
-  - https://privacy.eponymicalgames.com and https://terms.eponymicalgames.com
-    did not resolve in DNS. The required DNS records are:
+  - Squarespace DNS CNAME records were added on 2026-06-27:
     privacy.eponymicalgames.com CNAME j3d1-fm.github.io
     terms.eponymicalgames.com CNAME j3d1-fm.github.io
+  - Authoritative and public DNS both resolved the new CNAME records on
+    2026-06-27, and the HTTP subdomain URLs returned HTTP 200 from GitHub Pages.
   - GitHub Pages HTTPS enforcement for the subdomain repositories is not enabled
-    yet. Enable it after DNS resolves and GitHub issues the certificates.
+    yet. GitHub returned `The certificate does not exist yet` immediately after
+    DNS was added. Enable HTTPS enforcement after GitHub issues the certificates.
 
 Rollback:
 - Pre-Google-tag commit: 906ebd0.

@@ -16,10 +16,12 @@
   subdomains:
   https://github.com/J3d1-fm/eponymical-games-privacy and
   https://github.com/J3d1-fm/eponymical-games-terms.
-- Documented that privacy.eponymicalgames.com and terms.eponymicalgames.com
-  are configured in GitHub Pages but do not currently resolve in DNS. Add CNAME
-  records for both hosts to j3d1-fm.github.io before production app links point
-  to the subdomains.
+- Added Squarespace DNS CNAME records for privacy.eponymicalgames.com and
+  terms.eponymicalgames.com, both pointing to j3d1-fm.github.io.
+- Verified that authoritative and public DNS resolve both subdomains, and that
+  both HTTP subdomain URLs return HTTP 200 from GitHub Pages.
+- Documented that GitHub Pages HTTPS enforcement is still pending certificate
+  issuance for both subdomain repositories.
 - Fixed stale `#project` homepage links to point to the current `#app` section.
 
 Rollback:
