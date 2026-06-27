@@ -42,9 +42,9 @@ DNS:
   - /privacy and /support returned 404 at that time.
 - Public URL verification on 2026-06-27 after the legal update:
   - https://eponymicalgames.com/privacy-policy.html returned HTTP 200 before
-    the local update was pushed.
+    the legal update was pushed; re-check after GitHub Pages propagation.
   - https://eponymicalgames.com/terms-of-service.html returned HTTP 200 before
-    the local update was pushed.
+    the legal update was pushed; re-check after GitHub Pages propagation.
   - https://privacy.eponymicalgames.com and https://terms.eponymicalgames.com
     did not resolve in DNS. Publishing true legal subdomains requires DNS and
     hosting work outside this repository. Recommended options:
