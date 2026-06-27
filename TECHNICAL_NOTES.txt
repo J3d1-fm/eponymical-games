@@ -27,6 +27,9 @@ Hosting:
 - GitHub repository: https://github.com/J3d1-fm/eponymical-games
 - GitHub Pages source: main branch, repository root.
 - Custom domain file: CNAME contains eponymicalgames.com.
+- Separate legal subdomain repositories prepared on 2026-06-27:
+  - https://github.com/J3d1-fm/eponymical-games-privacy
+  - https://github.com/J3d1-fm/eponymical-games-terms
 
 DNS:
 - Domain nameservers were switched from Wix (ns2.wixdns.net and ns3.wixdns.net) to Squarespace/Google Cloud DNS on 2026-06-11.
@@ -47,15 +50,15 @@ DNS:
     `Last updated: 27 June 2026`.
   - https://eponymicalgames.com/privacy/ returned HTTP 200.
   - https://eponymicalgames.com/terms/ returned HTTP 200.
+  - GitHub Pages status for the privacy and terms subdomain repositories was
+    `built`, with custom domains set to privacy.eponymicalgames.com and
+    terms.eponymicalgames.com.
   - https://privacy.eponymicalgames.com and https://terms.eponymicalgames.com
-    did not resolve in DNS. Publishing true legal subdomains requires DNS and
-    hosting work outside this repository. Recommended options:
-    1. Add DNS/host redirects from privacy.eponymicalgames.com and
-       terms.eponymicalgames.com to the canonical pages above.
-    2. Create two tiny GitHub Pages redirect repositories, each with its own
-       CNAME file for the subdomain.
-    3. Use a DNS/edge provider such as Cloudflare or Squarespace URL
-       forwarding if available for the domain.
+    did not resolve in DNS. The required DNS records are:
+    privacy.eponymicalgames.com CNAME j3d1-fm.github.io
+    terms.eponymicalgames.com CNAME j3d1-fm.github.io
+  - GitHub Pages HTTPS enforcement for the subdomain repositories is not enabled
+    yet. Enable it after DNS resolves and GitHub issues the certificates.
 
 Rollback:
 - Pre-Google-tag commit: 906ebd0.

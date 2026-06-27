@@ -12,9 +12,14 @@
 - Removed automatic Google Ads tag loading from the legal pages.
 - Changed the main page Google Ads tag to load only after cookie consent.
 - Added /privacy/ and /terms/ redirect aliases for cleaner app links.
-- Documented that privacy.eponymicalgames.com and terms.eponymicalgames.com do
-  not currently resolve in DNS, so true subdomain publication requires DNS or
-  separate GitHub Pages redirect repositories.
+- Created standalone GitHub Pages repositories for the requested legal
+  subdomains:
+  https://github.com/J3d1-fm/eponymical-games-privacy and
+  https://github.com/J3d1-fm/eponymical-games-terms.
+- Documented that privacy.eponymicalgames.com and terms.eponymicalgames.com
+  are configured in GitHub Pages but do not currently resolve in DNS. Add CNAME
+  records for both hosts to j3d1-fm.github.io before production app links point
+  to the subdomains.
 - Fixed stale `#project` homepage links to point to the current `#app` section.
 
 Rollback:
