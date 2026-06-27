@@ -1,3 +1,11 @@
+2026-06-27
+
+- Added Google tag (gtag.js) to all public site pages for Google Ads conversion ID AW-18277780913.
+- Updated technical notes with the active Google tag configuration.
+
+Rollback:
+- Use git commit 906ebd0 to return to the state before the Google Ads tag was added.
+
 2026-06-26
 
 - Updated privacy-policy.html for Learn Piano: Play Songs App Store/TestFlight readiness.
