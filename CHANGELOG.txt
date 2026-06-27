@@ -15,6 +15,7 @@
 - Documented that privacy.eponymicalgames.com and terms.eponymicalgames.com do
   not currently resolve in DNS, so true subdomain publication requires DNS or
   separate GitHub Pages redirect repositories.
+- Fixed stale `#project` homepage links to point to the current `#app` section.
 
 Rollback:
 - Use git commit 7756419 to return to the state before the legal update and
