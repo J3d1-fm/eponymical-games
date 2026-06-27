@@ -1,5 +1,25 @@
 2026-06-27
 
+- Rewrote Terms of Service for Learn Piano: Play Songs legal readiness under
+  England and Wales governing law, including user-provided audio, unofficial
+  educational arrangements, MusicKit/Apple Music DRM boundaries, UGC sharing,
+  takedown handling, prohibited uses, liability limits, indemnity and app-store
+  terms.
+- Updated Privacy Policy to match current app/site data practices: UK GDPR
+  controller details, audio/microphone handling, Apple/Firebase/RevenueCat/Meta,
+  ATT/IDFA, Google Ads consent, cloud-analysis opt-in, retention, children,
+  international transfers and user rights.
+- Removed automatic Google Ads tag loading from the legal pages.
+- Changed the main page Google Ads tag to load only after cookie consent.
+- Added /privacy/ and /terms/ redirect aliases for cleaner app links.
+- Documented that privacy.eponymicalgames.com and terms.eponymicalgames.com do
+  not currently resolve in DNS, so true subdomain publication requires DNS or
+  separate GitHub Pages redirect repositories.
+
+Rollback:
+- Use git commit 7756419 to return to the state before the legal update and
+  cookie-consent gate.
+
 - Added Google tag (gtag.js) to all public site pages for Google Ads conversion ID AW-18277780913.
 - Updated technical notes with the active Google tag configuration.
 

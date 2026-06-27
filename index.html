@@ -3,15 +3,6 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18277780913"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18277780913');
-</script>
 <title>Eponymical Games — Gamified Learning Apps</title>
 <meta name="description" content="Eponymical Games is a London studio building gamified, educational game apps that make learning genuinely fun. Currently in development: a game-based app that teaches you to play piano." />
 <meta property="og:title" content="Eponymical Games — Gamified Learning Apps" />
@@ -285,6 +276,13 @@
   .contact-side .ci span { color: var(--muted); font-size: 14px; }
   .toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(120px); background: var(--grad); color: #0a0a0f; font-weight: 700; padding: 15px 26px; border-radius: 999px; box-shadow: 0 18px 50px rgba(124,92,255,0.5); transition: transform .4s cubic-bezier(.2,.8,.2,1); z-index: 100; }
   .toast.show { transform: translateX(-50%) translateY(0); }
+  .cookie-consent { position: fixed; left: 24px; right: 24px; bottom: 24px; z-index: 120; display: none; max-width: 760px; margin: 0 auto; padding: 18px 20px; border: 1px solid var(--border); border-radius: 18px; background: rgba(12,12,18,.96); box-shadow: 0 18px 70px rgba(0,0,0,.55); backdrop-filter: blur(18px); }
+  .cookie-consent.show { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
+  .cookie-consent p { color: #c9c9d6; font-size: 14px; margin: 0; }
+  .cookie-consent a { color: var(--text); text-decoration: underline; }
+  .cookie-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+  .cookie-actions button { font-family: inherit; font-weight: 700; border: 1px solid var(--border); border-radius: 999px; padding: 10px 16px; cursor: pointer; color: var(--text); background: var(--surface-2); }
+  .cookie-actions button.accept { border: none; color: #0a0a0f; background: var(--grad); }
 
   .sound-toggle { position: fixed; bottom: 22px; right: 22px; z-index: 60; display: inline-flex; align-items: center; gap: 8px; padding: 11px 16px; border-radius: 999px; background: rgba(13,13,20,0.82); backdrop-filter: blur(10px); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; transition: transform .2s, border-color .2s, box-shadow .3s; }
   .sound-toggle:hover { transform: translateY(-2px); border-color: rgba(124,92,255,0.5); }
@@ -424,6 +422,8 @@
     .cta-final { padding: 50px 24px; }
     .reg-row { flex-direction: column; gap: 2px; }
     .reg-row .v { text-align: left; }
+    .cookie-consent.show { grid-template-columns: 1fr; }
+    .cookie-actions { justify-content: flex-start; }
   }
 </style>
 </head>
@@ -802,11 +802,49 @@
 </button>
 
 <div class="toast" id="toast">Thanks! We'll be in touch soon 🎹</div>
+<div class="cookie-consent" id="cookieConsent" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <p>We use essential site features and, only if you agree, Google Ads measurement cookies. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" id="cookieReject">Reject</button>
+    <button type="button" class="accept" id="cookieAccept">Accept</button>
+  </div>
+</div>
 
 <script>
   // mark JS as active — enables the reveal animations. if this script is ever
   // blocked (e.g. by CSP), the class is never added and all content stays visible.
   document.documentElement.classList.add('js');
+
+  const ADS_CONSENT_KEY = 'eg_ads_measurement_consent_v1';
+  const loadGoogleAdsTag = () => {
+    if (window.egGoogleAdsTagLoaded) return;
+    window.egGoogleAdsTagLoaded = true;
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18277780913';
+    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', 'AW-18277780913');
+  };
+
+  const consent = localStorage.getItem(ADS_CONSENT_KEY);
+  const consentBox = document.getElementById('cookieConsent');
+  if (consent === 'accepted') {
+    loadGoogleAdsTag();
+  } else if (consentBox && consent !== 'rejected') {
+    consentBox.classList.add('show');
+  }
+  document.getElementById('cookieAccept')?.addEventListener('click', () => {
+    localStorage.setItem(ADS_CONSENT_KEY, 'accepted');
+    consentBox?.classList.remove('show');
+    loadGoogleAdsTag();
+  });
+  document.getElementById('cookieReject')?.addEventListener('click', () => {
+    localStorage.setItem(ADS_CONSENT_KEY, 'rejected');
+    consentBox?.classList.remove('show');
+  });
 
   const header = document.getElementById('header');
   addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 10));
