@@ -15,6 +15,13 @@ Source:
   - Terms URL for app links: https://eponymicalgames.com/terms-of-service.html
   - Support URL: https://eponymicalgames.com/#contact
   - Marketing URL: https://eponymicalgames.com/
+- Red Flag Detector TestFlight legal coverage was added on 2026-07-05. The
+  app-specific App Store Connect URL set for `com.eponymical.redflagdetector`
+  is:
+  - Privacy Policy URL: https://eponymicalgames.com/red-flag-detector-privacy.html
+  - Terms URL: https://eponymicalgames.com/red-flag-detector-terms.html
+  - Support URL: https://eponymicalgames.com/#contact
+  - Marketing URL: https://eponymicalgames.com/
 
 Forms:
 - The launch notification form and contact form post to https://formsubmit.co/direct@eponymicalgames.com.
@@ -63,6 +70,7 @@ DNS:
     DNS was added. Enable HTTPS enforcement after GitHub issues the certificates.
 
 Rollback:
+- Red Flag Detector legal-page update base commit: eb5c9df.
 - Pre-Google-tag commit: 906ebd0.
 - Privacy policy App Store update commit: e882dc5.
 - Baseline static site commit: fc2e641.

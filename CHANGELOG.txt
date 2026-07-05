@@ -1,3 +1,21 @@
+2026-07-05
+
+- Updated Privacy Policy and Terms of Service for Red Flag Detector TestFlight
+  readiness.
+- Added app-specific Red Flag Detector privacy and terms pages so App Store
+  Connect does not need to point at the broader Learn Piano legal pages.
+- Added explicit Red Flag Detector coverage for local photo processing, local
+  face-signal use, no account requirement, no backend upload, no analytics and
+  no live ad network in the current TestFlight candidate.
+- Updated legal page dates and metadata so App Store Connect can use the
+  app-specific Eponymical Games URLs for Red Flag Detector:
+  https://eponymicalgames.com/red-flag-detector-privacy.html and
+  https://eponymicalgames.com/red-flag-detector-terms.html.
+
+Rollback:
+- Use git commit eb5c9df to return to the state before the Red Flag Detector
+  legal-page update.
+
 2026-06-27
 
 - Rewrote Terms of Service for Learn Piano: Play Songs legal readiness under
