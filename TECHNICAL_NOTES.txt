@@ -27,6 +27,22 @@ Source:
   `https://eponymicalgames.com/terms-of-service.html`; all privacy, legal,
   DMCA, refund, subscription, support and general questions route to
   `direct@eponymicalgames.com`; no phone contact is published.
+- Store legal-link verification on 2026-07-09:
+  - App Store Connect app 6784630194, App Privacy page: Privacy Policy URL is
+    `https://eponymicalgames.com/privacy-policy.html`.
+  - App Store Connect iOS version 1.0 page: selected build is 110, Support URL
+    is `https://eponymicalgames.com/#contact`, Marketing URL is
+    `https://eponymicalgames.com/`.
+  - Google Play Console developer 5025212824510828216, app
+    4975729820164754662: Privacy Policy URL is
+    `https://eponymicalgames.com/privacy-policy.html`.
+  - Google Play Store settings: public contact email is
+    `direct@eponymicalgames.com`, public phone field is empty, website is
+    `https://eponymicalgames.com`.
+  - The homepage links to both `privacy-policy.html` and
+    `terms-of-service.html`; no separate Google Play Terms URL field was found
+    on the checked privacy-policy, app-content overview and store-settings
+    surfaces.
 
 Forms:
 - The launch notification form and contact form post to https://formsubmit.co/direct@eponymicalgames.com.

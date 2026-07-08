@@ -1,3 +1,23 @@
+2026-07-09
+
+- Verified the live Learn Piano legal pages and store metadata after the
+  2026-07-08 legal hardening update.
+- App Store Connect App Privacy for app 6784630194 shows Privacy Policy URL:
+  https://eponymicalgames.com/privacy-policy.html.
+- App Store Connect iOS version 1.0 uses build 110, Support URL
+  https://eponymicalgames.com/#contact and Marketing URL
+  https://eponymicalgames.com/.
+- Google Play Console for developer 5025212824510828216, app
+  4975729820164754662, shows Privacy Policy URL:
+  https://eponymicalgames.com/privacy-policy.html.
+- Google Play Store settings show contact email direct@eponymicalgames.com,
+  an empty public phone field and website https://eponymicalgames.com.
+- The public homepage links to both Privacy Policy and Terms of Service, so the
+  Google Play website field leads to the public Terms link.
+
+Rollback:
+- Use git commit 5c96ec2 to return to the state before this verification note.
+
 2026-07-08
 
 - Strengthened the canonical Learn Piano / Eponymical Games Privacy Policy and
