@@ -1,3 +1,22 @@
+2026-07-08
+
+- Strengthened the canonical Learn Piano / Eponymical Games Privacy Policy and
+  Terms of Service for App Store / Google Play release readiness.
+- Terms now explicitly cover "as is" / "as available" use, no guaranteed
+  access, no guaranteed learning outcomes, no guaranteed analysis accuracy,
+  app-store-controlled refunds, no company refunds except where mandatory law
+  or app-store rules require them, user responsibility for MIDI/score/audio
+  rights, open catalog downloads, rights complaints and DMCA/takedown requests
+  via direct@eponymicalgames.com.
+- Privacy Policy now explicitly covers MIDI, MusicXML, PDF/score files,
+  catalog downloads, generated practice data and rights/DMCA support messages.
+- No phone contact was added; all privacy, legal, DMCA, support and general
+  requests route to direct@eponymicalgames.com.
+
+Rollback:
+- Use git commit da2d9a2 to return to the state before the 2026-07-08 legal
+  hardening update.
+
 2026-07-05
 
 - Updated Privacy Policy and Terms of Service for Red Flag Detector TestFlight

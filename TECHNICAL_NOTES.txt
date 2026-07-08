@@ -22,6 +22,11 @@ Source:
   - Terms URL: https://eponymicalgames.com/red-flag-detector-terms.html
   - Support URL: https://eponymicalgames.com/#contact
   - Marketing URL: https://eponymicalgames.com/
+- Learn Piano / Eponymical Games legal hardening was updated on 2026-07-08:
+  canonical URLs remain `https://eponymicalgames.com/privacy-policy.html` and
+  `https://eponymicalgames.com/terms-of-service.html`; all privacy, legal,
+  DMCA, refund, subscription, support and general questions route to
+  `direct@eponymicalgames.com`; no phone contact is published.
 
 Forms:
 - The launch notification form and contact form post to https://formsubmit.co/direct@eponymicalgames.com.
