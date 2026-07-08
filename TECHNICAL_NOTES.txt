@@ -43,6 +43,11 @@ Source:
     `terms-of-service.html`; no separate Google Play Terms URL field was found
     on the checked privacy-policy, app-content overview and store-settings
     surfaces.
+  - The old legal subdomains returned HTTP 200 over plain HTTP, but HTTPS did
+    not complete for `https://privacy.eponymicalgames.com/` or
+    `https://terms.eponymicalgames.com/`. Store metadata should use the
+    canonical apex-domain legal URLs, not these subdomains, until HTTPS is
+    confirmed.
 
 Forms:
 - The launch notification form and contact form post to https://formsubmit.co/direct@eponymicalgames.com.

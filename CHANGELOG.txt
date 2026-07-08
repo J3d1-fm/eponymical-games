@@ -14,6 +14,10 @@
   an empty public phone field and website https://eponymicalgames.com.
 - The public homepage links to both Privacy Policy and Terms of Service, so the
   Google Play website field leads to the public Terms link.
+- The old legal subdomains still answer over plain HTTP, but HTTPS did not
+  complete on 2026-07-09. Store metadata should continue to use the canonical
+  apex-domain URLs above, not privacy.eponymicalgames.com or
+  terms.eponymicalgames.com.
 
 Rollback:
 - Use git commit 5c96ec2 to return to the state before this verification note.
