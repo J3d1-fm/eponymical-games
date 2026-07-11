@@ -4,6 +4,8 @@ Source:
 - Static HTML site with no build step.
 - Main page: index.html.
 - Legal pages: privacy-policy.html and terms-of-service.html.
+- Authorized mobile ad sellers: root-level app-ads.txt. It contains the direct
+  AdMob publisher and Meta Audience Network Business ID used by Learn Piano.
 - Path aliases: /privacy/ redirects to privacy-policy.html and /terms/
   redirects to terms-of-service.html.
 - Google tag (gtag.js) is consent-gated on index.html and is not loaded

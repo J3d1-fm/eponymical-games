@@ -1,3 +1,14 @@
+2026-07-11
+
+- Added root-level app-ads.txt for Learn Piano Android monetization readiness.
+- Authorized the Eponymical Games AdMob publisher and direct Meta Audience
+  Network business relationship used by the production banner mediation.
+- Required live verification: https://eponymicalgames.com/app-ads.txt must
+  return HTTP 200 before AdMob ownership verification can complete.
+
+Rollback:
+- Revert the 2026-07-11 app-ads.txt commit to remove these seller records.
+
 2026-07-09
 
 - Verified the live Learn Piano legal pages and store metadata after the
