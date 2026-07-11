@@ -1,3 +1,18 @@
+2026-07-12
+
+- Updated Terms of Service for Learn Piano catalog/CDN operations to state
+  that catalog or arrangement-library materials may be user-generated,
+  contributor-provided, automatically generated or third-party supplied.
+- Added explicit wording that Eponymical Games may process DMCA notices and
+  other rights complaints, then remove, disable, restrict, de-list or stop
+  distributing a specific arrangement or catalog item without removing the rest
+  of the library.
+- Updated the Terms "Last updated" date to 12 July 2026.
+
+Rollback:
+- Revert this commit to return to the 2026-07-08 Terms wording for catalog,
+  UGC and DMCA handling.
+
 2026-07-11
 
 - Added root-level app-ads.txt for Learn Piano Android monetization readiness.

@@ -29,6 +29,12 @@ Source:
   `https://eponymicalgames.com/terms-of-service.html`; all privacy, legal,
   DMCA, refund, subscription, support and general questions route to
   `direct@eponymicalgames.com`; no phone contact is published.
+- Learn Piano catalog/CDN legal wording was updated on 2026-07-12:
+  `terms-of-service.html` now states that catalog or arrangement-library
+  materials may be user-generated, contributor-provided, automatically
+  generated or third-party supplied; DMCA notices and rights complaints may be
+  processed by removing, disabling, restricting or de-listing a specific
+  arrangement or catalog item without removing the rest of the library.
 - Store legal-link verification on 2026-07-09:
   - App Store Connect app 6784630194, App Privacy page: Privacy Policy URL is
     `https://eponymicalgames.com/privacy-policy.html`.
