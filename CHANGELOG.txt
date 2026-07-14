@@ -1,3 +1,22 @@
+Version 1.0.1 - 2026-07-15
+
+- Added the Google ML Kit disclosure found during independent release review.
+- Clarified that raw photos and chat screenshots, face-detection and
+  text-recognition inputs and outputs, and verdict content stay on the device
+  and are not sent to Eponymical Games or Google.
+- Disclosed that Google ML Kit may separately collect limited operational
+  telemetry: device and app information, a per-install identifier, performance
+  and utilization information, API configuration such as image format and
+  resolution, and event and error metrics for diagnostics, usage analytics and
+  app functionality.
+- Linked the official Google ML Kit Apple data disclosure and ML Kit Terms.
+- Updated the Crush Check landing-page privacy summary to match the full policy.
+- Kept app-ads.txt unchanged.
+
+Rollback:
+- Revert the Version 1.0.1 commit to restore site version 1.0.0 at commit
+  f55873e.
+
 Version 1.0.0 - 2026-07-15
 
 - Established the first explicit versioned release of the static site.

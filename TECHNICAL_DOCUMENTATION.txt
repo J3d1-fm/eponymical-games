@@ -1,9 +1,9 @@
 Eponymical Games static site technical documentation
 
 Release:
-- Site version: 1.0.0.
+- Site version: 1.0.1.
 - Release date: 2026-07-15.
-- Previous published baseline: git commit 3e76549.
+- Previous published baseline: site version 1.0.0, git commit f55873e.
 - VERSION.txt is the canonical human-readable site version.
 
 Source:
@@ -34,9 +34,13 @@ Source:
   - Support URL: https://eponymicalgames.com/crush-check.html#support
   - Marketing URL: https://eponymicalgames.com/crush-check.html
 - The Crush Check legal and support pages document the build 4 behavior:
-  - photos, chat screenshots, recognized text and simple face signals are
-    processed locally and are not sent to Eponymical Games or Google through
-    the advertising SDK;
+  - raw photos and chat screenshots, recognized text, simple face signals and
+    all ML Kit processing input and output stay on-device and are not sent to
+    Eponymical Games or Google;
+  - Google ML Kit may separately collect limited operational telemetry:
+    device/app information, a per-install identifier, performance/utilization,
+    API configuration such as image format and resolution, and event/error
+    metrics for diagnostics, usage analytics and app functionality;
   - Google Mobile Ads may process coarse location, device or other identifiers,
     advertising data, product interaction, crashes, performance and other
     diagnostics for ads, measurement, security, fraud prevention and SDK
@@ -47,7 +51,10 @@ Source:
     restored from the same store account.
 - The Crush Check landing and legal pages do not load analytics or external web
   fonts. The main site Google Ads tag behavior is unchanged.
-- app-ads.txt was intentionally not modified for site version 1.0.0. Its AdMob
+- Official ML Kit references used by the privacy page:
+  - https://developers.google.com/ml-kit/ios-data-disclosure
+  - https://developers.google.com/ml-kit/terms
+- app-ads.txt was intentionally not modified for site version 1.0.1. Its AdMob
   publisher line remains `google.com, pub-5027203663631471, DIRECT,
   f08c47fec0942fa0`.
 - Learn Piano / Eponymical Games legal hardening was updated on 2026-07-08:
