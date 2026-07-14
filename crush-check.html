@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crush Check — Red Flag Test for Crushes</title>
+<meta name="description" content="Crush Check turns a photo or chat screenshot into a playful red or green flag verdict. Entertainment only, with private on-device analysis." />
+<link rel="canonical" href="https://eponymicalgames.com/crush-check.html" />
+<style>
+  :root { --bg:#07070b; --surface:#111117; --surface2:#181820; --border:#2c2c37; --text:#f8f8fb; --muted:#aaaabd; --red:#ff453a; --green:#30d158; --paper:#fff7df; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; }
+  .wrap { width:min(1080px,calc(100% - 40px)); margin:0 auto; }
+  header { position:sticky; top:0; z-index:10; background:rgba(7,7,11,.9); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); }
+  nav { min-height:68px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+  .brand { display:flex; align-items:center; gap:11px; font-weight:800; text-decoration:none; }
+  .mark { display:grid; place-items:center; width:36px; height:36px; border-radius:10px; background:var(--red); color:var(--paper); font-size:14px; }
+  .navlinks { display:flex; align-items:center; gap:20px; color:var(--muted); font-size:14px; }
+  .navlinks a:hover { color:var(--text); }
+  .hero { padding:96px 0 76px; text-align:center; background:radial-gradient(circle at 50% 8%,rgba(255,69,58,.18),transparent 36%); }
+  .eyebrow { color:#ff8e87; font-weight:800; letter-spacing:.12em; text-transform:uppercase; font-size:12px; }
+  h1 { max-width:820px; margin:16px auto 18px; font-size:clamp(48px,9vw,88px); line-height:.98; letter-spacing:-.055em; }
+  .lead { max-width:680px; margin:0 auto; color:#d2d2dc; font-size:clamp(18px,3vw,23px); }
+  .pills { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin:34px auto 0; }
+  .pill { padding:9px 14px; background:var(--surface); border:1px solid var(--border); border-radius:999px; color:#d8d8e2; font-size:14px; }
+  .section { padding:72px 0; }
+  h2 { margin:0 0 14px; font-size:clamp(32px,5vw,48px); letter-spacing:-.035em; line-height:1.1; }
+  .intro { max-width:670px; color:var(--muted); margin:0 0 34px; font-size:18px; }
+  .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .card { padding:25px; background:var(--surface); border:1px solid var(--border); border-radius:20px; }
+  .card .icon { font-size:28px; margin-bottom:12px; }
+  .card h3 { margin:0 0 8px; font-size:20px; }
+  .card p { margin:0; color:var(--muted); }
+  .verdict { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .result { min-height:260px; display:flex; flex-direction:column; justify-content:flex-end; padding:32px; border-radius:26px; border:1px solid var(--border); }
+  .result.red { background:linear-gradient(155deg,rgba(255,69,58,.08),rgba(255,69,58,.28)); }
+  .result.green { background:linear-gradient(155deg,rgba(48,209,88,.08),rgba(48,209,88,.24)); }
+  .result b { font-size:34px; line-height:1.08; }
+  .result span { margin-top:8px; color:#e1e1e8; }
+  .privacy { padding:32px; background:var(--paper); color:#17171c; border-radius:26px; }
+  .privacy h2 { max-width:760px; }
+  .privacy p { max-width:780px; color:#41414a; font-size:18px; }
+  .privacy a { font-weight:750; }
+  .support-grid { display:grid; grid-template-columns:1fr 1.25fr; gap:38px; align-items:start; }
+  .support-copy { color:var(--muted); }
+  .support-copy a { color:var(--text); }
+  details { padding:18px 0; border-bottom:1px solid var(--border); }
+  summary { cursor:pointer; font-weight:750; }
+  details p { margin:10px 0 0; color:var(--muted); }
+  footer { padding:40px 0; border-top:1px solid var(--border); color:var(--muted); font-size:14px; }
+  .foot { display:flex; align-items:center; justify-content:space-between; gap:22px; flex-wrap:wrap; }
+  .footlinks { display:flex; gap:16px; flex-wrap:wrap; }
+  @media (max-width:760px) { .navlinks a:first-child { display:none; } .hero { padding-top:72px; } .grid { grid-template-columns:1fr; } .verdict,.support-grid { grid-template-columns:1fr; } .section { padding:54px 0; } }
+</style>
+</head>
+<body>
+<header>
+  <nav class="wrap">
+    <a class="brand" href="crush-check.html"><span class="mark">CC</span> Crush Check</a>
+    <div class="navlinks"><a href="index.html">Eponymical Games</a><a href="#support">Support</a></div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Red flag test for crushes</div>
+      <h1>Is it a red flag?</h1>
+      <p class="lead">Choose a photo or chat screenshot and get a playful red or green flag verdict. No account. Private on-device analysis. Entertainment only.</p>
+      <div class="pills"><span class="pill">Photos</span><span class="pill">Chat screenshots</span><span class="pill">Shareable results</span><span class="pill">Remove Ads option</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>A quick reality check, without the serious face.</h2>
+      <p class="intro">Crush Check turns the clues you choose into a light-hearted verdict. It is made for laughs and conversation, not real-life decisions.</p>
+      <div class="grid">
+        <article class="card"><div class="icon">📷</div><h3>Pick your clue</h3><p>Take a photo or choose an image from your library.</p></article>
+        <article class="card"><div class="icon">💬</div><h3>Check the vibe</h3><p>Use a chat screenshot when the messages tell the story.</p></article>
+        <article class="card"><div class="icon">↗️</div><h3>Share the verdict</h3><p>Send the result with the native share sheet when you want to.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap verdict">
+      <article class="result red"><b>Red flag</b><span>A dramatic verdict for entertainment — not a factual assessment.</span></article>
+      <article class="result green"><b>Green flag</b><span>A playful result you can keep or share with friends.</span></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap privacy">
+      <h2>Your photos and chats stay on your device.</h2>
+      <p>Crush Check processes the image, visible chat text and simple face signals locally. They are not uploaded to or collected by Eponymical Games or Google through the advertising SDK. The app may show Google Mobile Ads and uses Google's consent flow where required. Read the <a href="red-flag-detector-privacy.html">Privacy Policy</a> for the exact advertising and purchase disclosures.</p>
+    </div>
+  </section>
+
+  <section class="section" id="support">
+    <div class="wrap support-grid">
+      <div>
+        <div class="eyebrow">Support</div>
+        <h2>Need help?</h2>
+        <p class="support-copy">Email <a href="mailto:direct@eponymicalgames.com">direct@eponymicalgames.com</a>. Include your device model, operating-system version and a short description of what happened. Do not email private photos or chat screenshots unless you deliberately choose to share them with support.</p>
+      </div>
+      <div>
+        <details><summary>Why does Crush Check ask for camera or photo access?</summary><p>Camera access is used only when you choose to take a photo. Photo-library access is used only when you choose to import an image. You can change either permission in device Settings.</p></details>
+        <details><summary>How do I remove ads?</summary><p>Open Crush Check Settings and choose the one-time Remove Ads purchase. The price is shown by your app store before you confirm.</p></details>
+        <details><summary>How do I restore Remove Ads?</summary><p>Use Restore Purchases in the app while signed in to the same app-store account that made the purchase.</p></details>
+        <details><summary>Where can I change advertising privacy choices?</summary><p>If Google requires a privacy-options entry for your region, open Crush Check Settings and choose Privacy choices. You can also limit advertising identifiers in your device privacy settings.</p></details>
+        <details><summary>How do I delete local app data?</summary><p>Use Delete my data in Crush Check Settings or uninstall the app. App-store purchase records are managed by Apple or Google and are not deleted by this local action.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Eponymical Games Ltd</span>
+    <span class="footlinks"><a href="red-flag-detector-privacy.html">Privacy</a><a href="red-flag-detector-terms.html">Terms</a><a href="mailto:direct@eponymicalgames.com">Contact</a><a href="index.html">Studio</a></span>
+  </div>
+</footer>
+</body>
+</html>

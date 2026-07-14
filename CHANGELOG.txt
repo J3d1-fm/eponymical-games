@@ -1,3 +1,35 @@
+Version 1.0.0 - 2026-07-15
+
+- Established the first explicit versioned release of the static site.
+- Rebranded the app-specific Red Flag Detector legal pages to Crush Check while
+  preserving their existing public filenames and URLs for App Store Connect.
+- Expanded the Crush Check Privacy Policy with the Google Mobile Ads (AdMob)
+  SDK data categories declared for the iOS build: coarse location, device or
+  other identifiers, advertising and product-interaction data, crashes,
+  performance and other diagnostics.
+- Documented Google UMP consent handling and the in-app Privacy choices entry,
+  including that ads are requested only when UMP permits an ad request.
+- Documented the one-time Remove Ads purchase and restoration without claiming
+  that Eponymical Games receives payment-card or bank-account data.
+- Clarified that selected photos, chat screenshots, recognized text, face
+  signals and verdict inputs are processed locally and are not uploaded to or
+  collected by Eponymical Games or the Google advertising SDK.
+- Added crush-check.html as a public marketing and support page with support,
+  privacy and terms links suitable for App Store metadata.
+- Added a Crush Check link to the main site footer.
+- Removed third-party web-font requests from the Crush Check legal pages.
+- Kept app-ads.txt unchanged, including the existing AdMob publisher line.
+
+Public URL set after deployment:
+- Marketing: https://eponymicalgames.com/crush-check.html
+- Support: https://eponymicalgames.com/crush-check.html#support
+- Privacy: https://eponymicalgames.com/red-flag-detector-privacy.html
+- Terms: https://eponymicalgames.com/red-flag-detector-terms.html
+
+Rollback:
+- Revert the Version 1.0.0 commit to restore commit 3e76549, the last published
+  site state before the Crush Check build 4 legal and support update.
+
 2026-07-12
 
 - Updated Terms of Service for Learn Piano catalog/CDN operations to state

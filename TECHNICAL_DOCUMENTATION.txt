@@ -1,9 +1,19 @@
-Eponymical Games static site technical notes
+Eponymical Games static site technical documentation
+
+Release:
+- Site version: 1.0.0.
+- Release date: 2026-07-15.
+- Previous published baseline: git commit 3e76549.
+- VERSION.txt is the canonical human-readable site version.
 
 Source:
 - Static HTML site with no build step.
 - Main page: index.html.
-- Legal pages: privacy-policy.html and terms-of-service.html.
+- General legal pages: privacy-policy.html and terms-of-service.html.
+- Crush Check marketing and support page: crush-check.html.
+- Crush Check app-specific legal pages keep their historical filenames to avoid
+  breaking the URLs already entered in App Store Connect:
+  red-flag-detector-privacy.html and red-flag-detector-terms.html.
 - Authorized mobile ad sellers: root-level app-ads.txt. It contains the direct
   AdMob publisher and Meta Audience Network Business ID used by Learn Piano.
 - Path aliases: /privacy/ redirects to privacy-policy.html and /terms/
@@ -17,13 +27,29 @@ Source:
   - Terms URL for app links: https://eponymicalgames.com/terms-of-service.html
   - Support URL: https://eponymicalgames.com/#contact
   - Marketing URL: https://eponymicalgames.com/
-- Red Flag Detector TestFlight legal coverage was added on 2026-07-05. The
-  app-specific App Store Connect URL set for `com.eponymical.redflagdetector`
-  is:
+- Crush Check release legal coverage was updated on 2026-07-15. The app keeps
+  bundle identifier `com.eponymical.redflagdetector`; its public URL set is:
   - Privacy Policy URL: https://eponymicalgames.com/red-flag-detector-privacy.html
   - Terms URL: https://eponymicalgames.com/red-flag-detector-terms.html
-  - Support URL: https://eponymicalgames.com/#contact
-  - Marketing URL: https://eponymicalgames.com/
+  - Support URL: https://eponymicalgames.com/crush-check.html#support
+  - Marketing URL: https://eponymicalgames.com/crush-check.html
+- The Crush Check legal and support pages document the build 4 behavior:
+  - photos, chat screenshots, recognized text and simple face signals are
+    processed locally and are not sent to Eponymical Games or Google through
+    the advertising SDK;
+  - Google Mobile Ads may process coarse location, device or other identifiers,
+    advertising data, product interaction, crashes, performance and other
+    diagnostics for ads, measurement, security, fraud prevention and SDK
+    operation;
+  - the app uses Google UMP and requests ads only when UMP permits it;
+  - a Privacy choices entry is available in app Settings when required;
+  - the one-time Remove Ads purchase is handled by the app store and can be
+    restored from the same store account.
+- The Crush Check landing and legal pages do not load analytics or external web
+  fonts. The main site Google Ads tag behavior is unchanged.
+- app-ads.txt was intentionally not modified for site version 1.0.0. Its AdMob
+  publisher line remains `google.com, pub-5027203663631471, DIRECT,
+  f08c47fec0942fa0`.
 - Learn Piano / Eponymical Games legal hardening was updated on 2026-07-08:
   canonical URLs remain `https://eponymicalgames.com/privacy-policy.html` and
   `https://eponymicalgames.com/terms-of-service.html`; all privacy, legal,
