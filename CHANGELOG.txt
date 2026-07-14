@@ -1,3 +1,21 @@
+Version 1.0.2 - 2026-07-15
+
+- Documented the neutral first-launch age gate with the local ranges under 13,
+  13–17 and 18+; the app does not request or calculate a date of birth.
+- Documented that users who select under 13 are blocked from the app.
+- Clarified that the selected range is stored only on the device and removed by
+  Delete my data or removal of the app's local data.
+- Clarified that, from the age gate, Google receives only the resulting
+  under-age-of-consent treatment flag for the correct advertising and consent
+  treatment, not the selected range or a date of birth.
+- Updated the public landing and support FAQ to state that Crush Check is for
+  ages 13 and older.
+- Kept app-ads.txt unchanged.
+
+Rollback:
+- Revert the Version 1.0.2 commit to restore site version 1.0.1 at commit
+  c6bf7a0.
+
 Version 1.0.1 - 2026-07-15
 
 - Added the Google ML Kit disclosure found during independent release review.

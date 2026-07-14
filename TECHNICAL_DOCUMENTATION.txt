@@ -1,9 +1,9 @@
 Eponymical Games static site technical documentation
 
 Release:
-- Site version: 1.0.1.
+- Site version: 1.0.2.
 - Release date: 2026-07-15.
-- Previous published baseline: site version 1.0.0, git commit f55873e.
+- Previous published baseline: site version 1.0.1, git commit c6bf7a0.
 - VERSION.txt is the canonical human-readable site version.
 
 Source:
@@ -34,6 +34,11 @@ Source:
   - Support URL: https://eponymicalgames.com/crush-check.html#support
   - Marketing URL: https://eponymicalgames.com/crush-check.html
 - The Crush Check legal and support pages document the build 4 behavior:
+  - a neutral first-launch age gate offers under 13, 13–17 and 18+ without
+    collecting a date of birth; under-13 users are blocked;
+  - the selected range stays only on-device and is deleted by Delete my data;
+  - from the age gate, Google receives only the resulting under-age-of-consent
+    treatment flag for advertising and consent, not the range or date of birth;
   - raw photos and chat screenshots, recognized text, simple face signals and
     all ML Kit processing input and output stay on-device and are not sent to
     Eponymical Games or Google;
@@ -54,7 +59,7 @@ Source:
 - Official ML Kit references used by the privacy page:
   - https://developers.google.com/ml-kit/ios-data-disclosure
   - https://developers.google.com/ml-kit/terms
-- app-ads.txt was intentionally not modified for site version 1.0.1. Its AdMob
+- app-ads.txt was intentionally not modified for site version 1.0.2. Its AdMob
   publisher line remains `google.com, pub-5027203663631471, DIRECT,
   f08c47fec0942fa0`.
 - Learn Piano / Eponymical Games legal hardening was updated on 2026-07-08:
