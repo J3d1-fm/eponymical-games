@@ -1,9 +1,9 @@
 Eponymical Games static site technical documentation
 
 Release:
-- Site version: 1.0.6.
+- Site version: 1.0.7.
 - Release date: 2026-07-23.
-- Previous published baseline: site version 1.0.5.
+- Previous published baseline: site version 1.0.6.
 - VERSION.txt is the canonical human-readable site version.
 
 Source:
@@ -33,22 +33,23 @@ Source:
   - Marketing URL: https://eponymicalgames.com/
 - MenuSage legal coverage was added on 2026-07-23 for bundle identifier
   `com.eponymical.menusage` and App Store Connect app 6793744349:
-  - the selected menu image/OCR, active on-device health profile, locale and
-    prompt version travel over TLS through the MenuSage Cloud Run proxy to the
-    paid Google Gemini API; the random install identifier stops at the proxy
-    and is used only for rate limiting and abuse prevention;
-  - the proxy does not persist the menu image or health profile, and generated
-    thumbnails remain local;
+  - the selected menu or prepared-food image, any OCR text, active on-device
+    health profile, locale and prompt version travel over TLS through the
+    MenuSage Cloud Run proxy to the paid Google Gemini API; the random install
+    identifier stops at the proxy and is used only for rate limiting and abuse
+    prevention;
+  - the proxy does not persist the analysis image or health profile, and
+    generated thumbnails remain local;
   - only after explicit Apple or Google sign-in, Firebase synchronizes the
     latest 300 analysis JSON/feedback records under the Firebase UID;
   - Firebase Authentication/Firestore, PurchaseKit and UniversalMMP are named;
-    the MMP contract receives no health-profile selection, menu photo or
+    the MMP contract receives no health-profile selection, analysis photo or
     cloud-history UUID and uses no IDFA or cross-app tracking;
   - in-app deletion covers synced history and the MenuSage account;
   - account deletion leaves only a one-way hashed security tombstone with an
     active 24-hour Firestore TTL, preventing an already-authorized request from
     recreating deleted account data;
-  - Apple's linked-data label treats a menu image as linked to the random
+  - Apple's linked-data label treats an analysis image as linked to the random
     installation identifier at the proxy, but not to a Firebase account and
     not for tracking;
   - the terms state the 18+ provider boundary and that results are food
@@ -170,6 +171,7 @@ DNS:
     DNS was added. Enable HTTPS enforcement after GitHub issues the certificates.
 
 Rollback:
+- MenuSage prepared-food clarification target: site version 1.0.6.
 - MenuSage final privacy-accuracy clarification target: site version 1.0.5.
 - MenuSage request-boundary clarification target: site version 1.0.4.
 - MenuSage legal-page update target: site version 1.0.3.

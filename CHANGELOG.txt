@@ -1,3 +1,20 @@
+Version 1.0.7 - 2026-07-23
+
+- Updated MenuSage legal wording for version 0.3.0: users can analyse a photo
+  of prepared food as well as a restaurant menu.
+- Clarified that the same transient proxy/Gemini flow, installation-ID
+  boundary, local-preview rule and cloud-history exclusions apply to both
+  kinds of analysis image.
+- Expanded the recommendation disclaimer to cover visually inferred prepared
+  dishes and ingredients that may be hidden or impossible to identify from a
+  photo.
+- Kept the underlying data categories, providers, retention, tracking status,
+  website layout, analytics consent and app-ads.txt unchanged.
+
+Rollback:
+- Revert the Version 1.0.7 prepared-food clarification to restore site version
+  1.0.6.
+
 Version 1.0.6 - 2026-07-23
 
 - Clarified that MenuSage's UniversalMMP events do not receive health-profile
