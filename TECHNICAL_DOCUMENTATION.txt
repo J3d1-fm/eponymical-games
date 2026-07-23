@@ -1,9 +1,9 @@
 Eponymical Games static site technical documentation
 
 Release:
-- Site version: 1.0.5.
+- Site version: 1.0.6.
 - Release date: 2026-07-23.
-- Previous published baseline: site version 1.0.4.
+- Previous published baseline: site version 1.0.5.
 - VERSION.txt is the canonical human-readable site version.
 
 Source:
@@ -42,8 +42,15 @@ Source:
   - only after explicit Apple or Google sign-in, Firebase synchronizes the
     latest 300 analysis JSON/feedback records under the Firebase UID;
   - Firebase Authentication/Firestore, PurchaseKit and UniversalMMP are named;
-    the MMP contract uses no IDFA and no cross-app tracking;
+    the MMP contract receives no health-profile selection, menu photo or
+    cloud-history UUID and uses no IDFA or cross-app tracking;
   - in-app deletion covers synced history and the MenuSage account;
+  - account deletion leaves only a one-way hashed security tombstone with an
+    active 24-hour Firestore TTL, preventing an already-authorized request from
+    recreating deleted account data;
+  - Apple's linked-data label treats a menu image as linked to the random
+    installation identifier at the proxy, but not to a Firebase account and
+    not for tracking;
   - the terms state the 18+ provider boundary and that results are food
     recommendations, not medical or certified allergen advice.
   Canonical MenuSage URLs are the general Privacy, Terms, Support and Marketing
@@ -80,7 +87,7 @@ Source:
 - Official ML Kit references used by the privacy page:
   - https://developers.google.com/ml-kit/ios-data-disclosure
   - https://developers.google.com/ml-kit/terms
-- app-ads.txt was intentionally not modified for site version 1.0.5. Its AdMob
+- app-ads.txt was intentionally not modified for site version 1.0.6. Its AdMob
   publisher line remains `google.com, pub-5027203663631471, DIRECT,
   f08c47fec0942fa0`.
 - Learn Piano / Eponymical Games legal hardening was updated on 2026-07-08:
@@ -163,6 +170,7 @@ DNS:
     DNS was added. Enable HTTPS enforcement after GitHub issues the certificates.
 
 Rollback:
+- MenuSage final privacy-accuracy clarification target: site version 1.0.5.
 - MenuSage request-boundary clarification target: site version 1.0.4.
 - MenuSage legal-page update target: site version 1.0.3.
 - Red Flag Detector legal-page update base commit: eb5c9df.

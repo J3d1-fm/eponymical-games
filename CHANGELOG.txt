@@ -1,3 +1,17 @@
+Version 1.0.6 - 2026-07-23
+
+- Clarified that MenuSage's UniversalMMP events do not receive health-profile
+  selections, menu photos or cloud-history record UUIDs.
+- Aligned the Apple privacy-label explanation with the analysis request: a
+  menu image is linked to the random installation identifier at the proxy for
+  rate limiting, but not to a Firebase account and not for tracking.
+- Disclosed the one-way hashed deleted-account security tombstone and its
+  automatic 24-hour Firestore TTL.
+- Kept the Terms, website layout, analytics consent and app-ads.txt unchanged.
+
+Rollback:
+- Revert the Version 1.0.6 privacy clarification to restore site version 1.0.5.
+
 Version 1.0.5 - 2026-07-23
 
 - Clarified MenuSage's request boundary: the random installation identifier
