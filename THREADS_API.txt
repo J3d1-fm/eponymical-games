@@ -1,0 +1,48 @@
+Learn Piano Threads API setup
+==============================
+
+Project:
+- Product: Learn Piano / Piano Codex Coach
+- Threads account: @learn_piano_games
+- Intended profile visibility: public
+
+Meta application:
+- App name: Personal Codex Threads
+- Threads App ID: 1388176256575019
+- Enabled permissions: threads_basic, threads_content_publish
+
+Multi-account model:
+- Each Threads account uses its own named local profile and its own user token.
+- The Learn Piano profile name is `learn-piano`.
+- Adding another brand or account must create another named profile; tokens and
+  account identity state must never be shared between profiles.
+
+Local runtime:
+- Client: /Users/phil/Documents/Codex Projects/Personal Projects Codex/scripts/threads_api.py
+- Learn Piano project binding:
+  /Users/phil/Documents/Codex Projects/learn-piano-play-songs
+- Private credentials are stored outside this repository in the protected
+  Personal Codex runtime directory. App secrets and access tokens must never be
+  copied into this file, the Eponymical Games repository, logs or chat.
+
+Publishing safeguards:
+- The token is accepted only after the API confirms it belongs to
+  @learn_piano_games.
+- Before every publishing operation, the client checks both the configured
+  username and the persisted Threads user id.
+- Creating a media container does not publish it.
+- A post can be published only with an explicit publication confirmation and
+  an exact match to the separately approved text.
+- Setup does not include a test post or any other public post.
+
+Current status as of 2026-07-20:
+- The Meta app and the private `learn-piano` runtime profile are configured.
+- The Threads profile onboarding is waiting at the `Join Threads` action, which
+  creates the public profile and accepts Meta's applicable Instagram and Threads
+  terms and privacy notices.
+- The tester invitation and authorization flow must be completed after the
+  profile joins Threads.
+- No access token has been issued yet. After authorization, Meta will exchange
+  the short-lived token for an approximately 60-day long-lived token; the client
+  will then verify the returned token against @learn_piano_games before saving it.
+- No public post has been created or published.

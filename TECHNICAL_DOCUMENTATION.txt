@@ -1,9 +1,9 @@
 Eponymical Games static site technical documentation
 
 Release:
-- Site version: 1.0.2.
-- Release date: 2026-07-15.
-- Previous published baseline: site version 1.0.1, git commit c6bf7a0.
+- Site version: 1.0.4.
+- Release date: 2026-07-23.
+- Previous published baseline: site version 1.0.3.
 - VERSION.txt is the canonical human-readable site version.
 
 Source:
@@ -16,6 +16,10 @@ Source:
   red-flag-detector-privacy.html and red-flag-detector-terms.html.
 - Authorized mobile ad sellers: root-level app-ads.txt. It contains the direct
   AdMob publisher and Meta Audience Network Business ID used by Learn Piano.
+- Internal Learn Piano Threads API integration record: THREADS_API.txt. It
+  contains non-secret account, app, permission, multi-profile, safety and setup
+  status details only. Threads app secrets and user tokens remain in the
+  protected Personal Codex runtime outside this repository.
 - Path aliases: /privacy/ redirects to privacy-policy.html and /terms/
   redirects to terms-of-service.html.
 - Google tag (gtag.js) is consent-gated on index.html and is not loaded
@@ -27,6 +31,22 @@ Source:
   - Terms URL for app links: https://eponymicalgames.com/terms-of-service.html
   - Support URL: https://eponymicalgames.com/#contact
   - Marketing URL: https://eponymicalgames.com/
+- MenuSage legal coverage was added on 2026-07-23 for bundle identifier
+  `com.eponymical.menusage` and App Store Connect app 6793744349:
+  - the selected menu image/OCR, active on-device health profile, locale,
+    prompt version and random install identifier travel over TLS through the
+    MenuSage Cloud Run proxy to the paid Google Gemini API;
+  - the proxy does not persist the menu image or health profile, and generated
+    thumbnails remain local;
+  - only after explicit Apple or Google sign-in, Firebase synchronizes the
+    latest 300 analysis JSON/feedback records under the Firebase UID;
+  - Firebase Authentication/Firestore, PurchaseKit and UniversalMMP are named;
+    the MMP contract uses no IDFA and no cross-app tracking;
+  - in-app deletion covers synced history and the MenuSage account;
+  - the terms state the 18+ provider boundary and that results are food
+    recommendations, not medical or certified allergen advice.
+  Canonical MenuSage URLs are the general Privacy, Terms, Support and Marketing
+  URLs listed above.
 - Crush Check release legal coverage was updated on 2026-07-15. The app keeps
   bundle identifier `com.eponymical.redflagdetector`; its public URL set is:
   - Privacy Policy URL: https://eponymicalgames.com/red-flag-detector-privacy.html
@@ -59,7 +79,7 @@ Source:
 - Official ML Kit references used by the privacy page:
   - https://developers.google.com/ml-kit/ios-data-disclosure
   - https://developers.google.com/ml-kit/terms
-- app-ads.txt was intentionally not modified for site version 1.0.2. Its AdMob
+- app-ads.txt was intentionally not modified for site version 1.0.4. Its AdMob
   publisher line remains `google.com, pub-5027203663631471, DIRECT,
   f08c47fec0942fa0`.
 - Learn Piano / Eponymical Games legal hardening was updated on 2026-07-08:
@@ -142,6 +162,7 @@ DNS:
     DNS was added. Enable HTTPS enforcement after GitHub issues the certificates.
 
 Rollback:
+- MenuSage legal-page update target: site version 1.0.3.
 - Red Flag Detector legal-page update base commit: eb5c9df.
 - Pre-Google-tag commit: 906ebd0.
 - Privacy policy App Store update commit: e882dc5.

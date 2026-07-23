@@ -1,3 +1,35 @@
+Version 1.0.4 - 2026-07-23
+
+- Added MenuSage to the general Privacy Policy and Terms of Service before its
+  first TestFlight build.
+- Disclosed transient menu-image, OCR and on-device health-profile transfer
+  through the Cloud Run proxy to the paid Google Gemini API.
+- Documented that photos, previews and the health profile are excluded from
+  cloud history, while the latest 300 analysis/feedback records sync only after
+  explicit Apple or Google sign-in.
+- Disclosed Firebase Authentication/Firestore, PurchaseKit and UniversalMMP,
+  including the random install ID and the absence of IDFA/cross-app tracking.
+- Added the 18+ boundary required by the current Gemini API terms and explicit
+  non-medical/allergy-safety disclaimers for MenuSage recommendations.
+- Kept the website layout, analytics consent and app-ads.txt unchanged.
+
+Rollback:
+- Revert the Version 1.0.4 legal-page changes to restore site version 1.0.3.
+
+Version 1.0.3 - 2026-07-20
+
+- Added THREADS_API.txt with the non-secret Learn Piano Threads integration
+  record for @learn_piano_games.
+- Documented the separate named-profile model used to support multiple Threads
+  accounts without sharing tokens or account identity state.
+- Recorded the Meta app identifier, minimum enabled permissions, private
+  credential boundary and mandatory publication safeguards.
+- Recorded the current onboarding and token status; no public post was made.
+- Kept the public website and app-ads.txt unchanged.
+
+Rollback:
+- Revert the Version 1.0.3 documentation changes to restore site version 1.0.2.
+
 Version 1.0.2 - 2026-07-15
 
 - Documented the neutral first-launch age gate with the local ranges under 13,
