@@ -1,9 +1,9 @@
 Eponymical Games static site technical documentation
 
 Release:
-- Site version: 1.0.4.
+- Site version: 1.0.5.
 - Release date: 2026-07-23.
-- Previous published baseline: site version 1.0.3.
+- Previous published baseline: site version 1.0.4.
 - VERSION.txt is the canonical human-readable site version.
 
 Source:
@@ -33,9 +33,10 @@ Source:
   - Marketing URL: https://eponymicalgames.com/
 - MenuSage legal coverage was added on 2026-07-23 for bundle identifier
   `com.eponymical.menusage` and App Store Connect app 6793744349:
-  - the selected menu image/OCR, active on-device health profile, locale,
-    prompt version and random install identifier travel over TLS through the
-    MenuSage Cloud Run proxy to the paid Google Gemini API;
+  - the selected menu image/OCR, active on-device health profile, locale and
+    prompt version travel over TLS through the MenuSage Cloud Run proxy to the
+    paid Google Gemini API; the random install identifier stops at the proxy
+    and is used only for rate limiting and abuse prevention;
   - the proxy does not persist the menu image or health profile, and generated
     thumbnails remain local;
   - only after explicit Apple or Google sign-in, Firebase synchronizes the
@@ -79,7 +80,7 @@ Source:
 - Official ML Kit references used by the privacy page:
   - https://developers.google.com/ml-kit/ios-data-disclosure
   - https://developers.google.com/ml-kit/terms
-- app-ads.txt was intentionally not modified for site version 1.0.4. Its AdMob
+- app-ads.txt was intentionally not modified for site version 1.0.5. Its AdMob
   publisher line remains `google.com, pub-5027203663631471, DIRECT,
   f08c47fec0942fa0`.
 - Learn Piano / Eponymical Games legal hardening was updated on 2026-07-08:
@@ -162,6 +163,7 @@ DNS:
     DNS was added. Enable HTTPS enforcement after GitHub issues the certificates.
 
 Rollback:
+- MenuSage request-boundary clarification target: site version 1.0.4.
 - MenuSage legal-page update target: site version 1.0.3.
 - Red Flag Detector legal-page update base commit: eb5c9df.
 - Pre-Google-tag commit: 906ebd0.

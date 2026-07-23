@@ -1,3 +1,13 @@
+Version 1.0.5 - 2026-07-23
+
+- Clarified MenuSage's request boundary: the random installation identifier
+  reaches only the Eponymical Games proxy for rate limiting and abuse
+  prevention and is not included in the Google Gemini prompt.
+- Kept all other Version 1.0.4 legal disclosures unchanged.
+
+Rollback:
+- Revert the Version 1.0.5 clarification to restore site version 1.0.4.
+
 Version 1.0.4 - 2026-07-23
 
 - Added MenuSage to the general Privacy Policy and Terms of Service before its
