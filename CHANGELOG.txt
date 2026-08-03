@@ -1,3 +1,20 @@
+Version 1.0.8 - 2026-07-24
+
+- Updated the internal Learn Piano Threads record after public-profile
+  onboarding, tester acceptance and API authorization completed.
+- Recorded live verification of @learn_piano_games, the isolated 60-day token
+  expiry, minimum permission set and private-file boundary without storing any
+  credential in the repository.
+- Recorded the security rotation: the first generated credential and its app
+  authorization were revoked after internal tooling exposed it, then a clean
+  replacement was issued and verified.
+- Confirmed that no Threads post or unpublished media container was created.
+- Kept the public website, legal pages and app-ads.txt unchanged.
+
+Rollback:
+- Revert the Version 1.0.8 internal Threads documentation update to restore
+  site version 1.0.7.
+
 Version 1.0.7 - 2026-07-23
 
 - Updated MenuSage legal wording for version 0.3.0: users can analyse a photo

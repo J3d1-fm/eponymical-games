@@ -1,9 +1,9 @@
 Eponymical Games static site technical documentation
 
 Release:
-- Site version: 1.0.7.
-- Release date: 2026-07-23.
-- Previous published baseline: site version 1.0.6.
+- Site version: 1.0.8.
+- Release date: 2026-07-24.
+- Previous published baseline: site version 1.0.7.
 - VERSION.txt is the canonical human-readable site version.
 
 Source:
@@ -20,6 +20,13 @@ Source:
   contains non-secret account, app, permission, multi-profile, safety and setup
   status details only. Threads app secrets and user tokens remain in the
   protected Personal Codex runtime outside this repository.
+  As of 2026-07-24, public profile @learn_piano_games is authorized with
+  `threads_basic` and `threads_content_publish`; live `/me` verification
+  confirmed Threads user id `27770957212542691`. The isolated token expires on
+  2026-09-22 at 15:19:45 UTC. The first generated credential was revoked after
+  internal browser tooling exposed it, and the verified replacement is stored
+  only in the protected runtime with mode 0600. No Threads post or unpublished
+  media container was created during setup.
 - Path aliases: /privacy/ redirects to privacy-policy.html and /terms/
   redirects to terms-of-service.html.
 - Google tag (gtag.js) is consent-gated on index.html and is not loaded
