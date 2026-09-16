@@ -1,3 +1,10 @@
+Version 1.0.9 — 2026-09-16 — Idle Cruise privacy disclosure
+- Added a dedicated Idle Cruise iOS/Android section covering local saves, store purchases, Firebase, UniversalMMP, AdMob/UMP, local notifications and privacy choices.
+- Clarified that ad consent does not disable all first-party analytics; kept other apps’ sections unchanged.
+- Describe the reviewed iOS first-party MMP boundary, Android Install Referrer, audience 13+ and advertising partners acting under their own terms.
+- Rollback: revert this version commit to return to 1.0.8.
+- Publication and independent review pending at this preparation checkpoint.
+
 Version 1.0.8 - 2026-07-24
 
 - Updated the internal Learn Piano Threads record after public-profile
