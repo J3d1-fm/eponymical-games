@@ -3,7 +3,7 @@ Version 1.0.9 — 2026-09-16 — Idle Cruise privacy disclosure
 - Clarified that ad consent does not disable all first-party analytics; kept other apps’ sections unchanged.
 - Describe the reviewed iOS first-party MMP boundary, Android Install Referrer, audience 13+ and advertising partners acting under their own terms.
 - Rollback: revert this version commit to return to 1.0.8.
-- Publication and independent review pending at this preparation checkpoint.
+- Independent review PASS; published through main 744cf57. HTTPS readback matches the reviewed policy bytes.
 
 Version 1.0.8 - 2026-07-24
 
