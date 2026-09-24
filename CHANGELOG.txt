@@ -1,3 +1,6 @@
+Version 1.0.11 — 2026-09-24
+- Specify the technical diagnostic data declared by the bundled Firebase Installations SDK in the Clear.ly policy. No change to app collection or consent.
+
 Version 1.0.10 — 2026-09-24
 - Add Clear.ly first-release support and privacy pages for the offline workbooks and diary.
 - Describe local-only writing, optional analytics after explicit consent, and no account or payments.

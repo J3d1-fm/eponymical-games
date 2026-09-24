@@ -1,7 +1,12 @@
+Version 1.0.11 — 2026-09-24 — Clear.ly SDK disclosure
+Source: exported build 1.0.0 (7), Firebase_FirebaseInstallations.bundle/PrivacyInfo.xcprivacy: OtherDiagnosticData / Analytics / linked=false / tracking=false.
+App Store disclosure and public policy now cover this SDK-specific type in addition to the four app analytics categories. Consent and app code are unchanged.
+Validation: scope is one policy paragraph, version and release documentation. Live verification recorded after publication.
+
 Version 1.0.10 — 2026-09-24 — Clear.ly first-release pages
 Scope: add clearly.html and clearly-privacy.html only; existing app-specific policies unchanged.
 No build step or third-party script on either new page. Analytics is optional in the app,
-with a local explicit choice before SDK initialization. Website deploy/readback pending.
+with a local explicit choice before SDK initialization. Published at main 6aa98b6; both Clear.ly pages returned HTTPS 200 and exact source bytes.
 
 Version 1.0.9 — 2026-09-16 — Idle Cruise release privacy preparation
 Scope: privacy-policy.html introduction and new section #idle-cruise; no changes to other app-specific sections or tracking code.
