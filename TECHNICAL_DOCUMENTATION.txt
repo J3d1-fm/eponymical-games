@@ -214,4 +214,7 @@ Rollback:
 - Bundled ML Kit16.0.1 OCR remains on device; SDK operational diagnostics and installation identifiers are separately collected.
 - Android Install Referrer measures campaigns through first-party UniversalMMP. No AD_ID.
 - Sources: developers.google.com/ml-kit/android-data-disclosure and native MmpService.kt.
-- Publication readback pending; rollback 6a8f148. No app or consent behavior changed.
+- Published main de9e31d; independent review PASS. Privacy and deletion pages
+  returned HTTPS200 and matched source bytes. Privacy SHA256
+  56f0e3b432e8895c4620a5f5925673cb1cfa0e74b1f1c5ca798f349c8e870481.
+- Rollback 6a8f148. No app or consent behavior changed.
