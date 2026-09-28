@@ -1,9 +1,24 @@
+Version 1.0.11 — 2026-09-24 — Clear.ly SDK disclosure
+Source: exported build 1.0.0 (7), Firebase_FirebaseInstallations.bundle/PrivacyInfo.xcprivacy: OtherDiagnosticData / Analytics / linked=false / tracking=false.
+App Store disclosure and public policy now cover this SDK-specific type in addition to the four app analytics categories. Consent and app code are unchanged.
+Validation: scope is one policy paragraph, version and release documentation. Live verification recorded after publication.
+
+Version 1.0.10 — 2026-09-24 — Clear.ly first-release pages
+Scope: add clearly.html and clearly-privacy.html only; existing app-specific policies unchanged.
+No build step or third-party script on either new page. Analytics is optional in the app,
+with a local explicit choice before SDK initialization. Published at main 6aa98b6; both Clear.ly pages returned HTTPS 200 and exact source bytes.
+
+Version 1.0.9 — 2026-09-16 — Idle Cruise release privacy preparation
+Scope: privacy-policy.html introduction and new section #idle-cruise; no changes to other app-specific sections or tracking code.
+Source: current Idle Cruise release iOS/Android SDK and native service review.
+Deployment: GitHub Pages, main branch root. Independent review PASS. Published via main 744cf57; live HTTPS 200 and full policy bytes match SHA256 ad070c368a8d6d8e223798c51aba6bbedd0460c402dbff5fc31c1bc6a22ff799.
+
 Eponymical Games static site technical documentation
 
 Release:
-- Site version: 1.0.9.
+- Site version: 1.0.12.
 - Release date: 2026-09-28.
-- Previous published baseline: site version 1.0.8.
+- Previous published baseline: site version 1.0.11.
 - VERSION.txt is the canonical human-readable site version.
 
 Source:
@@ -192,4 +207,4 @@ Rollback:
 - Support route uses existing direct@eponymicalgames.com, with ownership verification.
 - In-app deletion remains Firebase reauthentication -> proxy DELETE account.
 - Privacy adds optional analysis text reports, excluding source photos/OCR/profile/UID.
-- Publication readback pending. Rollback: prior site 1.0.8 commit.
+- Publication readback pending. Rollback: prior site 1.0.11 commit 5b42632.
