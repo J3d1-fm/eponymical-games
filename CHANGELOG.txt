@@ -1,3 +1,8 @@
+Version 1.0.13 — 2026-09-28
+- Disclosed MenuSage Android ML Kit technical telemetry and Install Referrer campaign measurement.
+- Kept OCR on-device processing distinct from consented Gemini analysis.
+- Corrected duplicate section numbering. Rollback: site 1.0.12 commit 6a8f148.
+
 Version 1.0.12 — 2026-09-28
 - Added a MenuSage account/history deletion request page for Google Play.
 - Clarified optional AI safety reports and Android subscription/analytics practices.

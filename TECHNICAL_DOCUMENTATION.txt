@@ -16,9 +16,9 @@ Deployment: GitHub Pages, main branch root. Independent review PASS. Published v
 Eponymical Games static site technical documentation
 
 Release:
-- Site version: 1.0.12.
+- Site version: 1.0.13.
 - Release date: 2026-09-28.
-- Previous published baseline: site version 1.0.11.
+- Previous published baseline: site version 1.0.12.
 - VERSION.txt is the canonical human-readable site version.
 
 Source:
@@ -207,4 +207,11 @@ Rollback:
 - Support route uses existing direct@eponymicalgames.com, with ownership verification.
 - In-app deletion remains Firebase reauthentication -> proxy DELETE account.
 - Privacy adds optional analysis text reports, excluding source photos/OCR/profile/UID.
-- Publication readback pending. Rollback: prior site 1.0.11 commit 5b42632.
+- Published through main6a8f148; GitHub Pages built. HTTPS deletion page
+  returned200 and matched reviewed source bytes on2026-09-28. Rollback: prior site 1.0.11 commit 5b42632.
+
+2026-09-28 MenuSage Android SDK disclosure, site1.0.13
+- Bundled ML Kit16.0.1 OCR remains on device; SDK operational diagnostics and installation identifiers are separately collected.
+- Android Install Referrer measures campaigns through first-party UniversalMMP. No AD_ID.
+- Sources: developers.google.com/ml-kit/android-data-disclosure and native MmpService.kt.
+- Publication readback pending; rollback 6a8f148. No app or consent behavior changed.
