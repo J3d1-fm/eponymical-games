@@ -1,3 +1,8 @@
+1.0.9 — 2026-09-28
+- Added a MenuSage account/history deletion request page for Google Play.
+- Clarified optional AI safety reports and Android subscription/analytics practices.
+- Preserved existing site pages and unrelated local THREADS_API.txt changes.
+
 Version 1.0.8 - 2026-07-24
 
 - Updated the internal Learn Piano Threads record after public-profile

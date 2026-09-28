@@ -1,9 +1,9 @@
 Eponymical Games static site technical documentation
 
 Release:
-- Site version: 1.0.8.
-- Release date: 2026-07-24.
-- Previous published baseline: site version 1.0.7.
+- Site version: 1.0.9.
+- Release date: 2026-09-28.
+- Previous published baseline: site version 1.0.8.
 - VERSION.txt is the canonical human-readable site version.
 
 Source:
@@ -186,3 +186,10 @@ Rollback:
 - Pre-Google-tag commit: 906ebd0.
 - Privacy policy App Store update commit: e882dc5.
 - Baseline static site commit: fc2e641.
+
+2026-09-28 MenuSage Android publication preparation
+- Deletion resource: /menusage-delete-account.html. No form backend or analytics.
+- Support route uses existing direct@eponymicalgames.com, with ownership verification.
+- In-app deletion remains Firebase reauthentication -> proxy DELETE account.
+- Privacy adds optional analysis text reports, excluding source photos/OCR/profile/UID.
+- Publication readback pending. Rollback: prior site 1.0.8 commit.
