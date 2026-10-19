@@ -1,0 +1,9 @@
+# GitHub Pages (legacy Jekyll build) configuration.
+# Internal records live in the repository root but must not be served from
+# https://eponymicalgames.com/. Every other root file (HTML pages, app-ads.txt,
+# CNAME, privacy/ and terms/ redirects) is published unchanged.
+exclude:
+  - THREADS_API.txt
+  - TECHNICAL_DOCUMENTATION.txt
+  - CHANGELOG.txt
+  - VERSION.txt

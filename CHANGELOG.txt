@@ -1,3 +1,9 @@
+Version 1.0.14 — 2026-10-19
+- Stopped publishing the internal records THREADS_API.txt, TECHNICAL_DOCUMENTATION.txt, CHANGELOG.txt and VERSION.txt: added _config.yml with a Jekyll exclude list (the site is built by the GitHub Pages legacy Jekyll build; there is no .nojekyll). They stay in the repository root; the live site now answers 404 for them.
+- All HTML pages, the privacy/ and terms/ redirects, CNAME and app-ads.txt keep their addresses and bytes.
+- Committed the local path update /Users/phil/Documents/Codex Projects → /Users/phil/CodexProjects in THREADS_API.txt (and in TECHNICAL_NOTES.txt of the privacy and terms subdomain repositories).
+- Rollback: delete _config.yml and revert this commit to return to 1.0.13 (1bd4269).
+
 Version 1.0.13 — 2026-09-28
 - Disclosed MenuSage Android ML Kit technical telemetry and Install Referrer campaign measurement.
 - Kept OCR on-device processing distinct from consented Gemini analysis.

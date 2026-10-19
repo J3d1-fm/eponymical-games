@@ -18,9 +18,9 @@ Multi-account model:
   account identity state must never be shared between profiles.
 
 Local runtime:
-- Client: /Users/phil/Documents/Codex Projects/Personal Projects Codex/scripts/threads_api.py
+- Client: /Users/phil/CodexProjects/Personal Projects Codex/scripts/threads_api.py
 - Learn Piano project binding:
-  /Users/phil/Documents/Codex Projects/learn-piano-play-songs
+  /Users/phil/CodexProjects/learn-piano-play-songs
 - Private credentials are stored outside this repository in the protected
   Personal Codex runtime directory. App secrets and access tokens must never be
   copied into this file, the Eponymical Games repository, logs or chat.

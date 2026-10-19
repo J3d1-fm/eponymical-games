@@ -1,3 +1,20 @@
+Version 1.0.14 — 2026-10-19 — internal records excluded from publication
+Finding: before this version https://eponymicalgames.com/THREADS_API.txt, /TECHNICAL_DOCUMENTATION.txt,
+/CHANGELOG.txt and /VERSION.txt all answered HTTP 200 (verified with curl -sI on 2026-10-19).
+Cause: GitHub Pages build_type "legacy" (Jekyll) from main root with no _config.yml and no .nojekyll,
+so every root file is served.
+Fix: _config.yml with an exclude list for the four files. Jekyll already builds the site (page bytes
+on the live site matched the source files), so the config only removes those paths from the output.
+No file was moved or renamed; the four records stay in the repository root for agents and tools.
+Scope: _config.yml, VERSION.txt, CHANGELOG.txt, this file, and the pending THREADS_API.txt local-path
+update (/Users/phil/Documents/Codex Projects → /Users/phil/CodexProjects). The matching TECHNICAL_NOTES.txt
+path update was committed in the eponymical-games-privacy and eponymical-games-terms repositories.
+Verification after publication: the four records answer 404; index.html, privacy-policy.html,
+terms-of-service.html, crush-check.html, red-flag-detector-privacy.html, red-flag-detector-terms.html,
+clearly.html, clearly-privacy.html, menusage-delete-account.html, app-ads.txt answer 200 with bytes equal
+to the source; /privacy/ and /terms/ redirects unchanged.
+Rollback: delete _config.yml and revert the Version 1.0.14 commit (site 1.0.13, commit 1bd4269).
+
 Version 1.0.11 — 2026-09-24 — Clear.ly SDK disclosure
 Source: exported build 1.0.0 (7), Firebase_FirebaseInstallations.bundle/PrivacyInfo.xcprivacy: OtherDiagnosticData / Analytics / linked=false / tracking=false.
 App Store disclosure and public policy now cover this SDK-specific type in addition to the four app analytics categories. Consent and app code are unchanged.
@@ -16,13 +33,15 @@ Deployment: GitHub Pages, main branch root. Independent review PASS. Published v
 Eponymical Games static site technical documentation
 
 Release:
-- Site version: 1.0.13.
-- Release date: 2026-09-28.
-- Previous published baseline: site version 1.0.12.
+- Site version: 1.0.14.
+- Release date: 2026-10-19.
+- Previous published baseline: site version 1.0.13.
 - VERSION.txt is the canonical human-readable site version.
 
 Source:
-- Static HTML site with no build step.
+- Static HTML site with no build step of its own; GitHub Pages runs its legacy Jekyll
+  build, and _config.yml only excludes the internal records (THREADS_API.txt,
+  TECHNICAL_DOCUMENTATION.txt, CHANGELOG.txt, VERSION.txt) from the published output.
 - Main page: index.html.
 - General legal pages: privacy-policy.html and terms-of-service.html.
 - Crush Check marketing and support page: crush-check.html.
