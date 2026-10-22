@@ -1,3 +1,8 @@
+Version 1.0.15 — 2026-10-22
+- Privacy policy: added section 8D "Bloghouse Rivals (iOS)" (anchor #bloghouse-rivals) — device-stored progress, on-device creator chats, Unity Gaming Services anonymous player ID, PurchaseKit verification and offer events, Firebase Analytics, UniversalMMP with IDFV and ATT status (no IDFA), AdMob rewarded/interstitial/banner after ATT and UMP, deletion requests by email. Points Android players to Gengames Interactive FZCO's policy.
+- Named Bloghouse Rivals for iOS in the introduction and meta description, added Unity Gaming Services to the provider list, PurchaseKit now covers MenuSage and Bloghouse Rivals. Last updated 22 October 2026.
+- Rollback: revert this commit to return to 1.0.14 (1e845f1).
+
 Version 1.0.14 — 2026-10-19
 - Stopped publishing the internal records THREADS_API.txt, TECHNICAL_DOCUMENTATION.txt, CHANGELOG.txt and VERSION.txt: added _config.yml with a Jekyll exclude list (the site is built by the GitHub Pages legacy Jekyll build; there is no .nojekyll). They stay in the repository root; the live site now answers 404 for them.
 - All HTML pages, the privacy/ and terms/ redirects, CNAME and app-ads.txt keep their addresses and bytes.
