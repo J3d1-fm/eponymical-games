@@ -1,3 +1,11 @@
+Version 1.0.16 — 2026-11-03 — FreePlay app-ads.txt
+Include the publisher app-ads.txt snapshot for Idle Cruise while retaining both
+existing direct AdMob and Meta seller records used by other studio apps.
+No marketing/privacy page or Pages exclusion configuration changes.
+Validation: exact public publisher snapshot retained after newline/trailing-whitespace normalization;
+all publisher seller records/metadata and both original records are present.
+Publication uses the existing main-root GitHub Pages site; live readback follows.
+
 Version 1.0.15 — 2026-10-22
 - Privacy policy: added section 8D "Bloghouse Rivals (iOS)" (anchor #bloghouse-rivals) — device-stored progress, on-device creator chats, Unity Gaming Services anonymous player ID, PurchaseKit verification and offer events, Firebase Analytics, UniversalMMP with IDFV and ATT status (no IDFA), AdMob rewarded/interstitial/banner after ATT and UMP, deletion requests by email. Points Android players to Gengames Interactive FZCO's policy.
 - Named Bloghouse Rivals for iOS in the introduction and meta description, added Unity Gaming Services to the provider list, PurchaseKit now covers MenuSage and Bloghouse Rivals. Last updated 22 October 2026.

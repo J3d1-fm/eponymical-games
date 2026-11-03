@@ -1,3 +1,21 @@
+Version 1.0.16 — 2026-11-03 — FreePlay authorized sellers
+Source: https://loveplaygames.com/app-ads.txt, fetched 2026-11-03T14:07:50Z.
+Publisher source SHA256:e9b790c1e1894579a69aea180bab44fa1a74fd83e20b4881b8e3359f62b5a146.
+Published candidate SHA256:553bef1b7ffdcc45f0985f905da80973a19a6f2a56c36c20c3e4908ca8be6c9b.
+Root app-ads.txt is the existing two direct seller records followed by the
+complete publisher text; only BOM/newline/trailing-whitespace normalization is allowed. Existing
+records are preserved because this domain also serves other studio apps.
+The merged file is 641302 bytes. Strict parsing finds 8392 publisher seller
+records, 2 retained studio records and all 6 publisher metadata declarations.
+Nine unparsed lines already exist in the publisher source and are retained
+without changing their fields; no unknown seller relationship or identifier was invented to repair them.
+GitHub Pages: repository J3d1-fm/eponymical-games, main root, legacy Jekyll,
+HTTPS eponymicalgames.com. _config.yml exclusions remain unchanged so internal
+records are not exposed. No HTML, privacy text, DNS or other app configuration changes.
+Baseline/rollback: a8dbed853569d70a0c37e494bdceb8e66d6cead7, site 1.0.15.
+Restore app-ads.txt from that commit and publish a new revert commit to roll back;
+do not rewrite remote history. External deployment verification is recorded below.
+
 Version 1.0.14 — 2026-10-19 — internal records excluded from publication
 Finding: before this version https://eponymicalgames.com/THREADS_API.txt, /TECHNICAL_DOCUMENTATION.txt,
 /CHANGELOG.txt and /VERSION.txt all answered HTTP 200 (verified with curl -sI on 2026-10-19).
@@ -33,9 +51,9 @@ Deployment: GitHub Pages, main branch root. Independent review PASS. Published v
 Eponymical Games static site technical documentation
 
 Release:
-- Site version: 1.0.14.
-- Release date: 2026-10-19.
-- Previous published baseline: site version 1.0.13.
+- Site version: 1.0.16.
+- Release date: 2026-11-03.
+- Previous published baseline: site version 1.0.15 (a8dbed853569d70a0c37e494bdceb8e66d6cead7).
 - VERSION.txt is the canonical human-readable site version.
 
 Source:
@@ -48,8 +66,9 @@ Source:
 - Crush Check app-specific legal pages keep their historical filenames to avoid
   breaking the URLs already entered in App Store Connect:
   red-flag-detector-privacy.html and red-flag-detector-terms.html.
-- Authorized mobile ad sellers: root-level app-ads.txt. It contains the direct
-  AdMob publisher and Meta Audience Network Business ID used by Learn Piano.
+- Authorized mobile ad sellers: root-level app-ads.txt. It retains the direct
+  AdMob publisher and Meta Audience Network Business ID used by Learn Piano,
+  followed by the FreePlay publisher list for Idle Cruise.
 - Internal Learn Piano Threads API integration record: THREADS_API.txt. It
   contains non-secret account, app, permission, multi-profile, safety and setup
   status details only. Threads app secrets and user tokens remain in the
