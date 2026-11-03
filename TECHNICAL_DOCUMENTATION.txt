@@ -12,6 +12,10 @@ without changing their fields; no unknown seller relationship or identifier was 
 GitHub Pages: repository J3d1-fm/eponymical-games, main root, legacy Jekyll,
 HTTPS eponymicalgames.com. _config.yml exclusions remain unchanged so internal
 records are not exposed. No HTML, privacy text, DNS or other app configuration changes.
+Publication verified 2026-11-03T14:13:09Z: GitHub Pages built commit
+bacf1fd9229679eb3facf474d5e15208c1dd47b0. Live HTTPS app-ads.txt returns200
+with text/plain and exact candidate SHA256; home/privacy/terms bytes match source.
+THREADS_API.txt, TECHNICAL_DOCUMENTATION.txt, CHANGELOG.txt and VERSION.txt return404.
 Baseline/rollback: a8dbed853569d70a0c37e494bdceb8e66d6cead7, site 1.0.15.
 Restore app-ads.txt from that commit and publish a new revert commit to roll back;
 do not rewrite remote history. External deployment verification is recorded below.
