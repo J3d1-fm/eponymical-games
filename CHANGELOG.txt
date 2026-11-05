@@ -1,3 +1,8 @@
+Version 1.0.19 — 2026-11-05 — Learn Piano AI data disclosure
+- Describe the current AI Coach symbolic report and Gemini data processing in the privacy policy.
+- No billing or application behavior changes.
+- Rollback baseline: 2ba97f3 (1.0.18).
+
 Version 1.0.18 — 2026-11-05 — Learn Piano account deletion
 - Add a public account-deletion page with in-app and email instructions, data scope and subscription guidance.
 - Link the page from the existing Learn Piano privacy section.
