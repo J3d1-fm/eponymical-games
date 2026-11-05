@@ -1,3 +1,9 @@
+Version 1.0.18 — 2026-11-05 — Learn Piano account deletion
+Source: Android AccountCloudManager/ParityFeatureUi and existing publisher privacy policy.
+New learn-piano-delete-account.html; one link added to the existing privacy policy. No tracking or other app content changes.
+Validation: static markup and link checks; publication/live-byte verification pending.
+Rollback: a73674d (1.0.17).
+
 Version 1.0.17 — 2026-11-05 — home page lists released apps
 Scope: index.html and new static images in assets/apps/ only. Store facts were read on 2026-11-05 from the
 public iTunes lookup for developer 6784630196 (Learn Piano 2.0.0, Idle Cruise 1.1.6, Clear.ly 1.0.0) and the
@@ -63,7 +69,7 @@ Deployment: GitHub Pages, main branch root. Independent review PASS. Published v
 Eponymical Games static site technical documentation
 
 Release:
-- Site version: 1.0.17.
+- Site version: 1.0.18.
 - Release date: 2026-11-05.
 - Previous published baseline: site version 1.0.16 (404a64e).
 - VERSION.txt is the canonical human-readable site version.

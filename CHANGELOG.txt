@@ -1,3 +1,8 @@
+Version 1.0.18 — 2026-11-05 — Learn Piano account deletion
+- Add a public account-deletion page with in-app and email instructions, data scope and subscription guidance.
+- Link the page from the existing Learn Piano privacy section.
+- Rollback baseline: a73674d (1.0.17).
+
 Version 1.0.17 — 2026-11-05 — home page: released apps
 - Home page now lists the four released studio apps with store links: Learn Piano: Play Songs (App Store id6784630194, Google Play com.eponymical.learnpiano.android), Idle Cruise Liner Tycoon (id6812440299, com.eponymical.idlecruise), Clear.ly (id6812385048) and Crush Check: Red Flags (com.eponymical.redflagdetector). MenuSage shown as "coming next" without store links.
 - Learn Piano section changed from "coming soon" to "out now, version 2.0"; feature copy follows the live App Store description. The launch-notify form is removed (the app is released); the contact form is unchanged apart from its topic list.
