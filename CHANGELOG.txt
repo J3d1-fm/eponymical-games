@@ -1,3 +1,7 @@
+Version 1.0.20 — 2026-11-05 — Learn Piano Android AI availability
+- Clarify that Android 2.0.1 (48) temporarily disables AI Coach and sends no practice reports to Gemini.
+- Retain the processing disclosure for versions in which AI Coach remains available.
+
 Version 1.0.19 — 2026-11-05 — Learn Piano AI data disclosure
 - Describe the current AI Coach symbolic report and Gemini data processing in the privacy policy.
 - No billing or application behavior changes.

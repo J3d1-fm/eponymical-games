@@ -1,6 +1,12 @@
+Version 1.0.20 — 2026-11-05 — Learn Piano Android AI availability
+Filipp explicitly selected temporary AI Coach disablement for Android48. The release removes firebase-ai and its request path, hides AI controls and blocks ai_monthly purchases.
+Privacy wording names the exact disabled version and retains truthful legacy/iOS processing disclosure. No global Firebase shutdown is claimed.
+Validation: exact text scope checked; live publication verification pending. Rollback:90beaa6 (1.0.19).
+
 Version 1.0.19 — 2026-11-05 — Learn Piano AI disclosure
 Verified current Firebase project learn-piano-play-songs is Spark. AiCoachManager sends lesson title and symbolic performance metrics, not raw audio.
 Disclosure updated to reflect current behavior; this does not resolve the separate Gemini API geographic/age restrictions. Publisher decision on AI provider/release scope is pending.
+Publication verified: Pages built90beaa6; privacy HTTPS200 exact source-byte match; internal TECHNICAL_DOCUMENTATION.txt remains404.
 Version1.0.18 publication verified: Pages built2ba97f3; deletion page and privacy live HTTP200 bytes match source; visible page reviewed.
 
 Version 1.0.18 — 2026-11-05 — Learn Piano account deletion
@@ -74,7 +80,7 @@ Deployment: GitHub Pages, main branch root. Independent review PASS. Published v
 Eponymical Games static site technical documentation
 
 Release:
-- Site version: 1.0.19.
+- Site version: 1.0.20.
 - Release date: 2026-11-05.
 - Previous published baseline: site version 1.0.16 (404a64e).
 - VERSION.txt is the canonical human-readable site version.
