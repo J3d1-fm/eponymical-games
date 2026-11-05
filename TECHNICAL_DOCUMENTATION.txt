@@ -1,7 +1,7 @@
 Version 1.0.20 — 2026-11-05 — Learn Piano Android AI availability
 Filipp explicitly selected temporary AI Coach disablement for Android48. The release removes firebase-ai and its request path, hides AI controls and blocks ai_monthly purchases.
 Privacy wording names the exact disabled version and retains truthful legacy/iOS processing disclosure. No global Firebase shutdown is claimed.
-Validation: exact text scope checked; live publication verification pending. Rollback:90beaa6 (1.0.19).
+Validation: Pages built6065745; privacy HTTPS200 exact source-byte match. Independent review PASS. Rollback:90beaa6 (1.0.19).
 
 Version 1.0.19 — 2026-11-05 — Learn Piano AI disclosure
 Verified current Firebase project learn-piano-play-songs is Spark. AiCoachManager sends lesson title and symbolic performance metrics, not raw audio.
