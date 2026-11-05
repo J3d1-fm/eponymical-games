@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Eponymical Games — Gamified Learning Apps</title>
-<meta name="description" content="Eponymical Games is a London studio building gamified, educational game apps that make learning genuinely fun. Currently in development: a game-based app that teaches you to play piano." />
-<meta property="og:title" content="Eponymical Games — Gamified Learning Apps" />
-<meta property="og:description" content="We turn learning into play. London-based studio crafting educational games and gamification systems." />
+<title>Eponymical Games — Mobile Games &amp; Playful Apps</title>
+<meta name="description" content="Eponymical Games is a London studio making mobile games and playful apps: Learn Piano: Play Songs, Idle Cruise Liner Tycoon, Clear.ly and Crush Check — out now on the App Store and Google Play." />
+<meta property="og:title" content="Eponymical Games — Mobile Games &amp; Playful Apps" />
+<meta property="og:description" content="London studio behind Learn Piano: Play Songs, Idle Cruise Liner Tycoon, Clear.ly and Crush Check — on the App Store and Google Play." />
+<meta property="og:image" content="https://eponymicalgames.com/assets/apps/idle-cruise-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -150,7 +151,7 @@
   /* ===== section heading ===== */
   .section { padding: 100px 0; position: relative; }
   .eyebrow { color: var(--violet); font-weight: 700; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; }
-  .section h2 { font-size: clamp(30px, 4.5vw, 50px); margin-top: 14px; max-width: 20ch; }
+  .section h2 { font-size: clamp(30px, 4.5vw, 50px); line-height: 1.12; margin-top: 14px; max-width: 20ch; }
   .section .sub { color: var(--muted); font-size: 18px; max-width: 58ch; margin-top: 16px; }
 
   /* visible by default — so the page works even if JS is blocked.
@@ -256,7 +257,7 @@
     background: linear-gradient(135deg, rgba(124,92,255,0.18), rgba(43,217,255,0.1)); border: 1px solid var(--border); }
   .cta-final::before { content:""; position:absolute; inset:0; background: radial-gradient(600px 300px at 50% 0, rgba(124,92,255,0.4), transparent 60%); opacity:.5; }
   .cta-final > * { position: relative; }
-  .cta-final h2 { font-size: clamp(32px, 5vw, 54px); }
+  .cta-final h2 { font-size: clamp(32px, 5vw, 54px); margin: 0 auto; }
   .cta-final p { color: var(--muted); font-size: 19px; margin: 18px auto 34px; max-width: 50ch; }
 
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 54px; align-items: start; }
@@ -388,7 +389,7 @@
 
   .coming { text-align: center; max-width: 760px; margin: 0 auto; padding: 90px 0 0; }
   .coming .eyebrow { display: block; }
-  .coming h2 { font-size: clamp(30px, 4.5vw, 50px); margin: 14px 0 16px; }
+  .coming h2 { font-size: clamp(30px, 4.5vw, 50px); line-height: 1.12; margin: 14px 0 16px; }
   .coming .sub { margin: 0 auto; }
   .coming-feats { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 28px 0; }
   .coming-feats li { font-size: 14px; background: var(--surface-2); border: 1px solid var(--border); padding: 9px 16px; border-radius: 999px; }
@@ -397,8 +398,43 @@
   .notify input:focus { outline: none; border-color: var(--violet); box-shadow: 0 0 0 3px rgba(124,92,255,0.18); }
   .coming .form-note a { color: var(--text); text-decoration: underline; }
 
+  /* ===== real screenshot inside the hero phone ===== */
+  .screen.shot { padding: 0; background: #0b0b12; }
+  .screen.shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+
+  /* ===== our apps ===== */
+  .apps-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 54px; }
+  .app-card { display: flex; flex-direction: column; gap: 18px; background: rgba(12,12,18,0.62); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; transition: transform .3s, border-color .3s, background .3s; }
+  .app-card:hover { transform: translateY(-6px); border-color: rgba(124,92,255,0.4); background: var(--surface-2); }
+  .app-head { display: flex; gap: 18px; align-items: center; }
+  .app-icon { width: 76px; height: 76px; border-radius: 18px; flex-shrink: 0; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); background: var(--surface-2); }
+  .app-head h3 { font-size: 22px; line-height: 1.2; }
+  .app-head .cat { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  .app-card p { color: #b4b4c6; font-size: 15px; }
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips li { font-size: 12px; background: var(--surface-2); border: 1px solid var(--border); padding: 5px 11px; border-radius: 999px; }
+  .store-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+  .store-btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; padding: 10px 16px; border-radius: 12px; background: #f4f4f8; color: #0a0a0f; transition: transform .2s, box-shadow .2s; }
+  .store-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(124,92,255,0.35); }
+  .store-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .store-btn.ghost { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); }
+  .next-card { margin-top: 22px; display: flex; gap: 18px; align-items: center; border: 1px dashed rgba(255,255,255,0.16); border-radius: var(--radius); padding: 22px 28px; color: var(--muted); font-size: 15px; }
+  .next-card .ico { font-size: 30px; }
+  .next-card b { color: var(--text); }
+
+  /* ===== screenshot strips ===== */
+  .shots { display: flex; gap: 16px; overflow-x: auto; padding: 6px 2px 18px; margin-top: 40px; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+  .shots img { flex-shrink: 0; scroll-snap-align: start; border-radius: 22px; border: 1px solid var(--border); background: var(--surface-2); }
+  .shots.portrait img { width: 210px; height: auto; aspect-ratio: 400 / 869; }
+  .shots.landscape img { width: 520px; max-width: 82vw; height: auto; aspect-ratio: 900 / 414; border-radius: 16px; }
+  .game-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 44px; align-items: center; margin-top: 10px; }
+  .game-grid .feat-points li::before { content: "⚓"; font-size: 15px; }
+  .langs { color: var(--muted); font-size: 14px; margin-top: 18px; }
+
   /* ===== responsive ===== */
   @media (max-width: 900px) {
+    .apps-grid, .game-grid { grid-template-columns: 1fr; }
+    .shots.portrait img { width: 170px; }
     .hero-grid { grid-template-columns: 1fr; }
     .phone-stage { order: -1; min-height: 460px; margin-bottom: 10px; }
     .cards-grid, .work-grid, .engage { grid-template-columns: 1fr; }
@@ -440,9 +476,10 @@
   <div class="wrap nav">
     <a href="#" class="logo"><span class="mark">▶</span> Eponymical Games</a>
     <nav class="nav-links" id="navLinks">
-      <a class="link" href="#what">What we do</a>
+      <a class="link" href="#apps">Our apps</a>
       <a class="link" href="#app">Learn Piano</a>
-      <a class="link" href="#approach">Approach</a>
+      <a class="link" href="#idle-cruise">Idle Cruise</a>
+      <a class="link" href="#what">What we do</a>
       <a class="btn btn-primary" href="#contact">Get in touch →</a>
     </nav>
     <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
@@ -453,17 +490,17 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <div class="pill reveal"><span class="live"></span> London-based game studio · Est. 2023</div>
-      <h1 class="reveal">We turn learning into a game worth <span class="gradient-text">playing</span></h1>
-      <p class="lead reveal">Eponymical Games builds gamified, educational apps that make real skills feel like play. Levels, streaks, rewards and feedback loops — engineered around how people actually learn.</p>
+      <div class="pill reveal"><span class="live"></span> London game studio · 4 apps out now</div>
+      <h1 class="reveal">Games and apps worth <span class="gradient-text">playing</span></h1>
+      <p class="lead reveal">Eponymical Games makes mobile games and playful apps — piano lessons from your own songs, a cruise-liner tycoon, a private journal and a red-flag scanner for crushes. All four are out on the App Store and Google Play.</p>
       <div class="hero-cta reveal">
-        <a href="#app" class="btn btn-primary">See what we're building →</a>
-        <a href="#what" class="btn btn-ghost">How it works</a>
+        <a href="#apps" class="btn btn-primary">See our apps →</a>
+        <a href="#contact" class="btn btn-ghost">Work with us</a>
       </div>
       <div class="hero-stats reveal">
-        <div class="stat"><div class="num gradient-text" data-count="100" data-suffix="%">0</div><div class="lbl">learning, gamified</div></div>
+        <div class="stat"><div class="num gradient-text" data-count="4">4</div><div class="lbl">apps out now</div></div>
+        <div class="stat"><div class="num gradient-text">iOS + Android</div><div class="lbl">App Store &amp; Google Play</div></div>
         <div class="stat"><div class="num gradient-text">2023</div><div class="lbl">London studio, est.</div></div>
-        <div class="stat"><div class="num gradient-text">UK</div><div class="lbl">registered studio</div></div>
       </div>
     </div>
 
@@ -471,26 +508,8 @@
       <div class="glow-ring"></div>
       <div class="glow-ring r2"></div>
       <div class="phone">
-        <div class="notch"></div>
-        <div class="screen">
-          <div class="screen-top">
-            <div class="app-tag">Piano · Learn by playing</div>
-            <div class="song">Prelude in C Major</div>
-            <div class="lvl">J.S. Bach · Beginner+</div>
-          </div>
-          <div class="roll">
-            <div class="note n1"></div><div class="note n2"></div><div class="note n3"></div>
-            <div class="note n4"></div><div class="note n5"></div>
-          </div>
-          <div class="keys">
-            <div class="key"></div><div class="key"></div><div class="key lit"></div><div class="key"></div>
-            <div class="key lit"></div><div class="key"></div><div class="key"></div>
-          </div>
-          <div class="score-bar">
-            <span>Score <b>8,420</b></span>
-            <span class="combo">🔥 24x combo</span>
-            <span>⭐ 98%</span>
-          </div>
+        <div class="screen shot">
+          <img src="assets/apps/idle-cruise-1.jpg" alt="Idle Cruise Liner Tycoon: a cruise liner sailing from Port Royal to Barcelona" width="400" height="869" />
         </div>
       </div>
     </div>
@@ -501,11 +520,76 @@
 <div class="wrap">
   <div class="marquee">
     <div class="marquee-track">
-      <span>🎮 Gamification</span><span>📚 EdTech</span><span>🎹 Music learning</span><span>🏆 Reward systems</span><span>🔥 Streaks &amp; XP</span><span>📱 iOS &amp; Android</span>
-      <span>🎮 Gamification</span><span>📚 EdTech</span><span>🎹 Music learning</span><span>🏆 Reward systems</span><span>🔥 Streaks &amp; XP</span><span>📱 iOS &amp; Android</span>
+      <span>🎹 Learn Piano</span><span>🚢 Idle Cruise</span><span>📓 Clear.ly</span><span>🚩 Crush Check</span><span>🌍 6 languages</span><span>📱 iOS &amp; Android</span>
+      <span>🎹 Learn Piano</span><span>🚢 Idle Cruise</span><span>📓 Clear.ly</span><span>🚩 Crush Check</span><span>🌍 6 languages</span><span>📱 iOS &amp; Android</span>
     </div>
   </div>
 </div>
+
+<!-- OUR APPS -->
+<section class="section" id="apps">
+  <div class="wrap">
+    <div class="eyebrow reveal">Our apps</div>
+    <h2 class="reveal">Out now on the App Store and Google Play</h2>
+    <p class="sub reveal">Free to download. Each one is built and run by the studio — design, code, store releases and support.</p>
+    <div class="apps-grid">
+      <article class="app-card reveal">
+        <div class="app-head">
+          <img class="app-icon" src="assets/apps/learn-piano-icon.png" alt="" width="76" height="76" />
+          <div><h3>Learn Piano: Play Songs</h3><div class="cat">Education · iPhone, iPad, Mac &amp; Android</div></div>
+        </div>
+        <p>Turn your own songs and sheet music into piano lessons. Import audio, PDF, MusicXML or MIDI, pick Easy, Medium or Pro, and practise with a microphone or MIDI keyboard while the app listens.</p>
+        <ul class="chips"><li>Version 2.0</li><li>MIDI keyboards</li><li>15-minute daily course</li></ul>
+        <div class="store-row">
+          <a class="store-btn" href="https://apps.apple.com/app/id6784630194" target="_blank" rel="noopener">App Store ↗</a>
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.eponymical.learnpiano.android" target="_blank" rel="noopener">Google Play ↗</a>
+          <a class="store-btn ghost" href="#app">More</a>
+        </div>
+      </article>
+      <article class="app-card reveal">
+        <div class="app-head">
+          <img class="app-icon" src="assets/apps/idle-cruise-icon.png" alt="" width="76" height="76" />
+          <div><h3>Idle Cruise Liner Tycoon</h3><div class="cat">Game · iOS &amp; Android</div></div>
+        </div>
+        <p>Start with a small ferry and grow it into an 18-deck cruise liner. Build pools, cabins and restaurants, sail to thirty ports and follow First Officer Ada's family mystery.</p>
+        <ul class="chips"><li>6 languages</li><li>Story in 7 chapters</li><li>Offline earnings</li></ul>
+        <div class="store-row">
+          <a class="store-btn" href="https://apps.apple.com/app/id6812440299" target="_blank" rel="noopener">App Store ↗</a>
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.eponymical.idlecruise" target="_blank" rel="noopener">Google Play ↗</a>
+          <a class="store-btn ghost" href="#idle-cruise">More</a>
+        </div>
+      </article>
+      <article class="app-card reveal">
+        <div class="app-head">
+          <img class="app-icon" src="assets/apps/clearly-icon.png" alt="" width="76" height="76" />
+          <div><h3>Clear.ly</h3><div class="cat">Lifestyle · iPhone &amp; iPad</div></div>
+        </div>
+        <p>Guided reflection workbooks and a private diary. Five everyday topics, from money to anxious thoughts. Everything you write stays on your device — no account, no subscription.</p>
+        <ul class="chips"><li>Works offline</li><li>No account</li><li>Free</li></ul>
+        <div class="store-row">
+          <a class="store-btn" href="https://apps.apple.com/app/id6812385048" target="_blank" rel="noopener">App Store ↗</a>
+          <a class="store-btn ghost" href="clearly.html">Support</a>
+        </div>
+      </article>
+      <article class="app-card reveal">
+        <div class="app-head">
+          <img class="app-icon" src="assets/apps/crush-check-icon.png" alt="" width="76" height="76" />
+          <div><h3>Crush Check: Red Flags</h3><div class="cat">Entertainment · Android</div></div>
+        </div>
+        <p>Snap a photo or drop in a chat screenshot and get a tabloid-style red flag or green flag verdict. Photos and chats are analysed on your phone and never leave it. Just for laughs, ages 13+.</p>
+        <ul class="chips"><li>On-device</li><li>Shareable verdicts</li><li>No account</li></ul>
+        <div class="store-row">
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.eponymical.redflagdetector" target="_blank" rel="noopener">Google Play ↗</a>
+          <a class="store-btn ghost" href="crush-check.html">More</a>
+        </div>
+      </article>
+    </div>
+    <div class="next-card reveal">
+      <div class="ico">🍽️</div>
+      <div><b>Coming next: MenuSage.</b> Photograph a restaurant menu and see which dishes fit the way you eat.</div>
+    </div>
+  </div>
+</section>
 
 <!-- WHAT WE DO -->
 <section class="section" id="what">
@@ -556,9 +640,9 @@
 
       <!-- entrance headline, fades out as the zoom begins -->
       <div class="scene-headline" id="sceneHeadline">
-        <span class="status-chip"><span class="dot"></span> Coming soon</span>
+        <span class="status-chip"><span class="dot"></span> Out now · Version 2.0</span>
         <h2>Learn Piano<span class="amp">:</span> Play Songs</h2>
-        <p>Your favourite songs, one falling note at a time.</p>
+        <p>Any song file can become a piano lesson.</p>
         <div class="scroll-hint">Scroll to step inside ↓</div>
       </div>
 
@@ -597,24 +681,24 @@
       <div class="info-scrim"></div>
       <div class="zoom-info" id="zoomInfo">
         <div class="zstep" data-step="0">
-          <div class="k">Learn by playing</div>
-          <h3>Real songs, not boring drills</h3>
-          <p>Start with royalty-free, public-domain classics — Bach, Beethoven and more — and play music you actually want to learn.</p>
+          <div class="k">Your music</div>
+          <h3>Import a song, get a lesson</h3>
+          <p>Audio, PDF, MusicXML, MIDI or a clear photo of a score. The app prepares notes, hands, fingering and a printable PDF.</p>
         </div>
         <div class="zstep" data-step="1">
-          <div class="k">In time with the music</div>
-          <h3>Notes fall, you play</h3>
-          <p>Every note drops in rhythm. Hit the right key as it lands and get instant, note-by-note feedback.</p>
+          <div class="k">Three levels</div>
+          <h3>Easy, Medium or Pro</h3>
+          <p>Start with a simple line, add more of the arrangement, then play the full part when you are ready.</p>
         </div>
         <div class="zstep" data-step="2">
-          <div class="k">Stay in the game</div>
-          <h3>Combos, streaks &amp; XP</h3>
-          <p>Score points, build combos and keep your daily streak alive — practice that finally feels like play.</p>
+          <div class="k">It listens</div>
+          <h3>Practice that follows your hands</h3>
+          <p>Play on an acoustic piano, a digital piano or a MIDI keyboard. Wait mode holds the lesson until you hit the right key.</p>
         </div>
         <div class="zstep" data-step="3">
-          <div class="k">Made for you</div>
-          <h3>Adapts as you improve</h3>
-          <p>Difficulty grows with your skill, from your first note to a full song — on iOS &amp; Android.</p>
+          <div class="k">Every day</div>
+          <h3>15-minute course</h3>
+          <p>Streaks, medals and accuracy scores. After each take the coach shows which bars to loop and which hand needs work.</p>
         </div>
       </div>
 
@@ -622,29 +706,59 @@
     </div>
   </div>
 
-  <!-- COMING SOON PANEL -->
+  <!-- LEARN PIANO: OUT NOW -->
   <div class="wrap">
     <div class="coming reveal">
-      <span class="eyebrow">Learn Piano: Play Songs</span>
-      <h2>Real songs. Real skills. <span class="gradient-text">Coming soon.</span></h2>
-      <p class="sub">Our flagship app, in active development. Learn to play the piano by playing the songs you love — notes fall in time with the music, you hit the keys, build combos and level up. Practice that feels like a game you actually want to open every day.</p>
+      <span class="eyebrow">Learn Piano: Play Songs 2.0</span>
+      <h2>Learn the songs you want. <span class="gradient-text">Out now.</span></h2>
+      <p class="sub">Version 2.0 brings a new practice screen with finger hints, layouts for phones and tablets, and a refreshed course, library and song import. On Macs with Apple silicon you can practise with a connected keyboard too.</p>
       <ul class="coming-feats">
-        <li>🎵 Learn by playing real songs</li>
-        <li>🎯 Instant note-by-note feedback</li>
-        <li>🔥 Streaks, XP &amp; daily goals</li>
-        <li>📈 Adaptive difficulty</li>
-        <li>📱 iOS &amp; Android</li>
+        <li>🎼 PDF, MusicXML &amp; MIDI import</li>
+        <li>🎹 USB &amp; Bluetooth MIDI</li>
+        <li>🔁 A/B loops &amp; metronome</li>
+        <li>🏅 Streaks &amp; medals</li>
+        <li>🖨️ PDF export</li>
       </ul>
-      <form class="notify" id="notifyForm" action="https://formsubmit.co/direct@eponymicalgames.com" method="POST">
-        <input type="hidden" name="_subject" value="Launch notification request - Eponymical Games" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_next" value="https://eponymicalgames.com/?submitted=notify" />
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-        <input type="hidden" name="form" value="Launch notification request" />
-        <input type="email" name="email" placeholder="you@email.com" aria-label="Email" required />
-        <button type="submit" class="btn btn-primary">Notify me at launch →</button>
-      </form>
-      <p class="form-note">Be first to play. We'll only email you about the launch. See our <a href="privacy-policy.html">Privacy Policy</a> &amp; <a href="terms-of-service.html">Terms of Service</a>.</p>
+      <div class="store-row" style="justify-content:center">
+        <a class="store-btn" href="https://apps.apple.com/app/id6784630194" target="_blank" rel="noopener">App Store ↗</a>
+        <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.eponymical.learnpiano.android" target="_blank" rel="noopener">Google Play ↗</a>
+      </div>
+    </div>
+    <div class="shots landscape reveal" aria-label="Learn Piano screenshots">
+      <img src="assets/apps/learn-piano-1.jpg" alt="Practice screen with hand colours and finger numbers" loading="lazy" width="900" height="414" />
+      <img src="assets/apps/learn-piano-2.jpg" alt="Beginner course" loading="lazy" width="900" height="414" />
+      <img src="assets/apps/learn-piano-3.jpg" alt="Song library" loading="lazy" width="900" height="414" />
+      <img src="assets/apps/learn-piano-4.jpg" alt="Importing a song file" loading="lazy" width="900" height="414" />
+      <img src="assets/apps/learn-piano-5.jpg" alt="Free Play mode" loading="lazy" width="900" height="414" />
+    </div>
+  </div>
+</section>
+
+<!-- IDLE CRUISE -->
+<section class="section" id="idle-cruise">
+  <div class="wrap game-grid">
+    <div>
+      <span class="status-chip reveal"><span class="dot"></span> Out now · iOS &amp; Android</span>
+      <h2 class="reveal" style="margin-top:20px">Idle Cruise Liner Tycoon</h2>
+      <p class="sub reveal">Your first ferry is only the beginning. Build a cruise liner one deck at a time and sail it around the world.</p>
+      <ul class="feat-points reveal">
+        <li>Five ship classes, all the way to an 18-deck liner</li>
+        <li>Six regions and thirty ports, with storms to plan around</li>
+        <li>A seven-chapter story, messages in bottles and a stowaway cat</li>
+        <li>Your crew keeps sailing while you are away</li>
+      </ul>
+      <div class="store-row reveal">
+        <a class="store-btn" href="https://apps.apple.com/app/id6812440299" target="_blank" rel="noopener">App Store ↗</a>
+        <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.eponymical.idlecruise" target="_blank" rel="noopener">Google Play ↗</a>
+      </div>
+      <p class="langs reveal">English, Russian, Spanish, Portuguese, German and French. Free to play with optional in-app purchases and ads.</p>
+    </div>
+    <div class="shots portrait reveal" aria-label="Idle Cruise screenshots" style="margin-top:0">
+      <img src="assets/apps/idle-cruise-4.jpg" alt="Store art: a cruise liner at sea" loading="lazy" width="400" height="869" />
+      <img src="assets/apps/idle-cruise-2.jpg" alt="Deck view with pools and venues" loading="lazy" width="400" height="869" />
+      <img src="assets/apps/idle-cruise-3.jpg" alt="Voyage map with ports" loading="lazy" width="400" height="869" />
+      <img src="assets/apps/idle-cruise-5.jpg" alt="Store art: building decks" loading="lazy" width="400" height="869" />
+      <img src="assets/apps/idle-cruise-1.jpg" alt="Liner view on the way to Barcelona" loading="lazy" width="400" height="869" />
     </div>
   </div>
 </section>
@@ -731,8 +845,10 @@
     <div class="eyebrow reveal">FAQ</div>
     <h2 class="reveal">Good questions, honest answers</h2>
     <div class="faq">
-      <div class="faq-item reveal"><button class="faq-q">What does Eponymical Games actually make? <span class="plus">+</span></button><div class="faq-a"><p>We build gamified, educational apps — games whose gameplay teaches a real skill — and we design gamification systems (XP, streaks, rewards) for other products. Our focus is learning made genuinely fun.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-q">What are you working on right now? <span class="plus">+</span></button><div class="faq-a"><p>Our current project is a piano-learning app that's in active development. It turns learning to play the piano into a game — falling notes, combos, levels and daily streaks. Early access is coming soon.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">What does Eponymical Games actually make? <span class="plus">+</span></button><div class="faq-a"><p>Mobile games and playful apps. Out now: Learn Piano: Play Songs, Idle Cruise Liner Tycoon, Clear.ly and Crush Check: Red Flags. We also build apps and gamification for other companies.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Where do I download your apps? <span class="plus">+</span></button><div class="faq-a"><p>Learn Piano and Idle Cruise are on the App Store and Google Play. Clear.ly is on the App Store for iPhone and iPad. Crush Check is on Google Play. All of them are free to download.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">How do I get help with one of your apps? <span class="plus">+</span></button><div class="faq-a"><p>Email <a href="mailto:direct@eponymicalgames.com" style="text-decoration:underline">direct@eponymicalgames.com</a> with the app name and your device. Clear.ly and Crush Check also have their own <a href="clearly.html#support" style="text-decoration:underline">support</a> <a href="crush-check.html#support" style="text-decoration:underline">pages</a>.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">What's coming next? <span class="plus">+</span></button><div class="faq-a"><p>MenuSage: take a photo of a restaurant menu and see which dishes suit the way you eat. Updates for Learn Piano and Idle Cruise ship regularly.</p></div></div>
       <div class="faq-item reveal"><button class="faq-q">Which platforms do you build for? <span class="plus">+</span></button><div class="faq-a"><p>iOS and Android, with the performance and polish a real game needs. We design mobile-first but build for great experiences across devices.</p></div></div>
       <div class="faq-item reveal"><button class="faq-q">Can you gamify our existing product? <span class="plus">+</span></button><div class="faq-a"><p>Yes. Beyond our own apps, we design and build gamification layers for EdTech and other teams — grounded in behavioural science, not just points for the sake of points.</p></div></div>
     </div>
@@ -743,8 +859,8 @@
 <section class="section" id="contact">
   <div class="wrap">
     <div class="cta-final reveal">
-      <h2>Let's make learning playable</h2>
-      <p>Want early access to the piano app, or to build something gamified together? Drop us a line — we'd love to hear from you.</p>
+      <h2>Let's build something people play</h2>
+      <p>A question about one of our apps, an idea for a game, or a product that needs a reason to come back — drop us a line.</p>
     </div>
 
     <div class="contact-grid">
@@ -758,8 +874,8 @@
         <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" required /></div>
         <div class="field"><label for="topic">I'm interested in</label>
           <select id="topic" name="topic">
-            <option>Early access to the piano app</option>
-            <option>Building a learning game</option>
+            <option>Help with one of your apps</option>
+            <option>Building a game or learning app</option>
             <option>Gamifying my product</option>
             <option>Partnership / consulting</option>
             <option>Just saying hi</option>
@@ -772,7 +888,7 @@
       <div class="contact-side reveal">
         <h3>Reach the studio</h3>
         <div class="ci"><div class="ic">✉️</div><div><b>direct@eponymicalgames.com</b><span>General &amp; project enquiries</span></div></div>
-        <div class="ci"><div class="ic">🎹</div><div><b>Early access list</b><span>Be first to try the piano app</span></div></div>
+        <div class="ci"><div class="ic">📱</div><div><b>App support</b><span>Same address — tell us the app and your device</span></div></div>
         <div class="ci"><div class="ic">📍</div><div><b>86–90 Paul Street, London</b><span>EC2A 4NE, United Kingdom</span></div></div>
       </div>
     </div>
@@ -784,9 +900,10 @@
     <div class="foot">
       <div class="col">
         <a href="#" class="logo" style="margin-bottom:14px"><span class="mark">▶</span> Eponymical Games</a>
-        <p style="color:var(--muted); font-size:15px">A London game studio building gamified, educational apps that make learning genuinely fun.</p>
+        <p style="color:var(--muted); font-size:15px">A London studio making mobile games and playful apps for iOS and Android.</p>
       </div>
-      <div class="col" style="max-width:none"><h5>Studio</h5><a href="#what">What we do</a><a href="#app">Learn Piano</a><a href="crush-check.html">Crush Check</a><a href="#approach">Approach</a></div>
+      <div class="col" style="max-width:none"><h5>Apps</h5><a href="#app">Learn Piano: Play Songs</a><a href="#idle-cruise">Idle Cruise Liner Tycoon</a><a href="clearly.html">Clear.ly</a><a href="crush-check.html">Crush Check</a></div>
+      <div class="col" style="max-width:none"><h5>Studio</h5><a href="#what">What we do</a><a href="#approach">Approach</a><a href="#contact">Contact</a></div>
       <div class="col" style="max-width:none"><h5>Work with us</h5><a href="#contact">Build a learning game</a><a href="#contact">Gamify your product</a><a href="#contact">Partner with us</a></div>
       <div class="col" style="max-width:none"><h5>Contact</h5><a href="mailto:direct@eponymicalgames.com">direct@eponymicalgames.com</a><a href="#contact">86–90 Paul Street,<br>London, EC2A 4NE, UK</a></div>
     </div>

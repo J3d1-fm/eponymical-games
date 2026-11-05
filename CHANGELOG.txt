@@ -1,3 +1,11 @@
+Version 1.0.17 — 2026-11-05 — home page: released apps
+- Home page now lists the four released studio apps with store links: Learn Piano: Play Songs (App Store id6784630194, Google Play com.eponymical.learnpiano.android), Idle Cruise Liner Tycoon (id6812440299, com.eponymical.idlecruise), Clear.ly (id6812385048) and Crush Check: Red Flags (com.eponymical.redflagdetector). MenuSage shown as "coming next" without store links.
+- Learn Piano section changed from "coming soon" to "out now, version 2.0"; feature copy follows the live App Store description. The launch-notify form is removed (the app is released); the contact form is unchanged apart from its topic list.
+- New Idle Cruise section with store screenshots. Hero, meta description, FAQ, contact side panel and footer updated.
+- New folder assets/apps/: app icons and screenshots downloaded from the studio's own App Store and Google Play listings on 2026-11-05.
+- Privacy, terms, app pages, app-ads.txt, _config.yml and the consent/Google Ads tag code are unchanged.
+- Rollback: revert this commit to return to 1.0.16 (404a64e).
+
 Version 1.0.16 — 2026-11-03 — FreePlay app-ads.txt
 Include the publisher app-ads.txt snapshot for Idle Cruise while retaining both
 existing direct AdMob and Meta seller records used by other studio apps.

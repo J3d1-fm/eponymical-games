@@ -1,3 +1,11 @@
+Version 1.0.17 — 2026-11-05 — home page lists released apps
+Scope: index.html and new static images in assets/apps/ only. Store facts were read on 2026-11-05 from the
+public iTunes lookup for developer 6784630196 (Learn Piano 2.0.0, Idle Cruise 1.1.6, Clear.ly 1.0.0) and the
+public Google Play developer page "Eponymical Games LTD" (learnpiano.android, idlecruise, redflagdetector).
+Images are the studio's own store icons and screenshots, stored locally (no hotlinking to store CDNs).
+No new third-party scripts; consent banner and Google Ads tag logic unchanged; launch-notify form removed.
+Baseline/rollback: 404a64e (site 1.0.16).
+
 Version 1.0.16 — 2026-11-03 — FreePlay authorized sellers
 Source: https://loveplaygames.com/app-ads.txt, fetched 2026-11-03T14:07:50Z.
 Publisher source SHA256:e9b790c1e1894579a69aea180bab44fa1a74fd83e20b4881b8e3359f62b5a146.
@@ -55,16 +63,17 @@ Deployment: GitHub Pages, main branch root. Independent review PASS. Published v
 Eponymical Games static site technical documentation
 
 Release:
-- Site version: 1.0.16.
-- Release date: 2026-11-03.
-- Previous published baseline: site version 1.0.15 (a8dbed853569d70a0c37e494bdceb8e66d6cead7).
+- Site version: 1.0.17.
+- Release date: 2026-11-05.
+- Previous published baseline: site version 1.0.16 (404a64e).
 - VERSION.txt is the canonical human-readable site version.
 
 Source:
 - Static HTML site with no build step of its own; GitHub Pages runs its legacy Jekyll
   build, and _config.yml only excludes the internal records (THREADS_API.txt,
   TECHNICAL_DOCUMENTATION.txt, CHANGELOG.txt, VERSION.txt) from the published output.
-- Main page: index.html.
+- Main page: index.html. Lists released apps with store links; app icons and
+  screenshots live in assets/apps/.
 - General legal pages: privacy-policy.html and terms-of-service.html.
 - Crush Check marketing and support page: crush-check.html.
 - Crush Check app-specific legal pages keep their historical filenames to avoid
